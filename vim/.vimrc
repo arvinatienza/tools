@@ -19,6 +19,7 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'tomtom/tlib_vim'
 Plugin 'honza/vim-snippets.git'
 Plugin 'joonty/vdebug'
+Plugin 'flazz/vim-colorschemes'
 
 call vundle#end()
 set number
@@ -30,4 +31,4 @@ syntax on
 filetype plugin indent on
 
 map <F2> :NERDTreeToggle<CR>
-map <F3> \be
+colorscheme 256-grayvim
