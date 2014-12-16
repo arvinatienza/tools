@@ -20,6 +20,7 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'honza/vim-snippets.git'
 Plugin 'joonty/vdebug'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'tmhedberg/matchit'
 
 call vundle#end()
 set number
