@@ -21,6 +21,7 @@ Plugin 'honza/vim-snippets.git'
 Plugin 'joonty/vdebug'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'tmhedberg/matchit'
+Plugin 'bling/vim-airline'
 
 call vundle#end()
 set number
@@ -28,8 +29,10 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set colorcolumn=80
 syntax on
 filetype plugin indent on
 
 map <F2> :NERDTreeToggle<CR>
+:noremap <F3> :set hlsearch! hlsearch?<CR>
 colorscheme 256-grayvim
