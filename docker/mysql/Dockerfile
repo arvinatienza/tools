@@ -13,6 +13,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 ADD . /data
+COPY scripts /opt/scripts
 
 RUN mv /data/run.sh / && \
     chmod +x /run.sh && \
@@ -25,4 +26,4 @@ VOLUME /data
 
 EXPOSE 3306
 
-CMD /Dockerinit
+CMD /run.sh

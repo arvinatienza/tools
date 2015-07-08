@@ -8,33 +8,16 @@ $script = <<SCRIPT
     echo "Installing required programs..."
     {
         apt-get update 
-        apt-get install -y docker.io vim tmux subversion git samba mc
+        apt-get install -y docker.io vim tmux subversion git mc
         apt-get clean
         rm -rf /var/lib/apt/lists/*
 
     } > /dev/null
 
-    echo "Setting up folders..."
+    echo "Pulling base Docker images"
     {
-        # create samba share
-        mkdir /Workspace
-        SMBCONF=" 
-            [Workspace]
-                comment = Workspace
-                path = /Workspace
-                browsable = yes
-                writable = yes
-                guest ok = yes
-                guest only = yes
-                read only = no
-                create mask = 0755
-                directory mask = 0755
-                force user = vagrant
-                force group = vagrant
-        "
-        echo $SMBCONF >> /etc/samba/smb.conf
-        service smbd restart
-
+        docker pull ubuntu:latest
+        docker pull svendowideit/ambassador:latest
     } > /dev/null
 
     exit 0
@@ -56,11 +39,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network "forwarded_port", guest: 80, host: 80
+  config.vm.network "forwarded_port", guest: 80, host: 8080
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
   config.vm.network "private_network", ip: "10.10.29.10"
 
   # Create a public network, which generally matched to bridged network.

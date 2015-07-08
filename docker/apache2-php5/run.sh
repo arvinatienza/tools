@@ -14,6 +14,7 @@ then
         echo $config >> /etc/php5/conf.d/xdebug.ini;
     fi;
     sed -i "s/_enable=Off/_enable=On/g" /etc/php5/conf.d/xdebug.ini;
+    sed -i 's/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf;
 fi;
 
 # initialize
