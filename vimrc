@@ -54,6 +54,8 @@ set colorcolumn=80
 syntax on
 filetype plugin indent on
 
+let NERDTreeShowHidden=1
+
 map <F2> :NERDTreeToggle<CR>
 :noremap <F3> :set hlsearch! hlsearch?<CR>
 colorscheme 256-grayvim
