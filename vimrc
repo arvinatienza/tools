@@ -51,12 +51,14 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set colorcolumn=80
+set cursorline
 syntax on
 filetype plugin indent on
 
-let NERDTreeShowHidden=1
+let mapleader = ","
+:noremap <leader>* :set hlsearch! hlsearch?<CR>
+map <leader>nt :NERDTreeToggle<CR>
+map <leader>ls :ls<CR>:b
 
-map <F2> :NERDTreeToggle<CR>
-:noremap <F3> :set hlsearch! hlsearch?<CR>
-colorscheme 256-grayvim
+colorscheme molokai
 
