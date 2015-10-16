@@ -1,0 +1,45 @@
+set nocompatible
+filetype off
+syntax on
+
+" Setting up Vundle - the vim plugin bundler
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle
+" required! 
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'mattn/emmet-vim'
+Plugin 'marcweber/vim-addon-mw-utils'
+Plugin 'garbas/vim-snipmate'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-sensible'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'tomtom/tlib_vim'
+Plugin 'honza/vim-snippets.git'
+Plugin 'joonty/vdebug'
+Plugin 'tmhedberg/matchit'
+Plugin 'bling/vim-airline'
+
+call vundle#end()
+" Setting up Vundle - the vim plugin bundler end
+
+set number
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set colorcolumn=80
+set cursorline
+filetype plugin indent on
+
+let mapleader = ","
+:noremap <leader>* :set hlsearch! hlsearch?<CR>
+map <leader>b :ls<CR>:b<Space>
+
+silent! colorscheme molokai
+

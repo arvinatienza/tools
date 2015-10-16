@@ -1,0 +1,29 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+VAGRANTFILE_API_VERSION = "2"
+
+$script = <<SCRIPT
+    apt-get update 
+    apt-get install -y \
+        tmux \
+        vim \
+        mc
+    apt-get clean
+    rm -rf /var/lib/apt/lists/*
+    ps aux | grep 'sshd:' | awk '{print $2}' | xargs kill
+    exit 0
+SCRIPT
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "ubuntu/trusty64"
+  # config.vm.hostname = "ARA_Projects"
+  config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "private_network", ip: "20.20.20.20"
+  config.vm.provider "virtualbox" do |vb|
+    vb.customize ["modifyvm", :id, "--memory", "1024"]
+  end
+  config.vm.provision "docker"
+  config.vm.provision "shell", inline: $script
+end
