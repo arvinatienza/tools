@@ -19,8 +19,8 @@ SCRIPT
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty32"
   # config.vm.hostname = "ARA_Projects"
-  config.vm.network "forwarded_port", guest: 80, host: 8080
-  config.vm.network "private_network", ip: "20.20.20.20"
+  # config.vm.network "forwarded_port", guest: 80, host: 8080
+  # config.vm.network "private_network", ip: "20.20.20.20"
   config.vm.provider "virtualbox" do |vb|
     vb.gui = true
     vb.customize ["modifyvm", :id, "--memory", "1024"]

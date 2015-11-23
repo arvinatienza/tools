@@ -24,6 +24,8 @@ Plugin 'honza/vim-snippets.git'
 Plugin 'joonty/vdebug'
 Plugin 'tmhedberg/matchit'
 Plugin 'bling/vim-airline'
+Plugin 'groenewege/vim-less'
+Plugin 'stanangeloff/php.vim'
 
 call vundle#end()
 " Setting up Vundle - the vim plugin bundler end
