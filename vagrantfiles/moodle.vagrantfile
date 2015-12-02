@@ -1,0 +1,40 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+ENV['VAGRANT_DEFAULT_PROVIDER'] = 'docker'
+
+DOCKER_HOST_NAME = "Projects"
+DOCKER_HOST_CREATE = "Yes"
+DOCKER_HOST_VAGRANTFILE = "../../Vagrantfile"
+
+Vagrant.configure(2) do |config|
+  config.vm.define "db" do |db|
+    db.vm.provider "docker" do |d|
+      d.image = "mysql"
+      d.name = "moodletestdb"
+      d.env = {
+        MYSQL_DATABASE: "symfony",
+        MYSQL_ROOT_PASSWORD: "test",
+        MYSQL_PASSWORD: "test",
+        MYSQL_USER: "symfony"
+      }
+      if DOCKER_HOST_CREATE = "Yes"
+        d.vagrant_vagrantfile = "#{DOCKER_HOST_VAGRANTFILE}"
+      end
+    end
+  end
+  config.vm.define "web" do |web|
+    web.vm.provider "docker" do |d|
+      d.build_dir = "server"
+      d.build_args = ["--tag=arvinatienza/moodle"]
+      d.name = "moodletest"
+      d.ports = ["30001:80"]
+      d.link("moodletestdb:moodletestdb")
+      if DOCKER_HOST_CREATE = "Yes"
+        d.vagrant_vagrantfile = "#{DOCKER_HOST_VAGRANTFILE}"
+      end
+    end
+    web.vm.synced_folder ".", "/var/www/html/", owner: "www-data", group: "vagrant", mount_options: ["dmode=775,fmode=664"]
+    web.vm.synced_folder "data", "/var/www/moodledata/", owner: "www-data", group: "vagrant", mount_options: ["dmode=775,fmode=664"]
+  end
+end
