@@ -1,0 +1,8 @@
+set relativenumber
+set colorcolumn=80
+set cursorline
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+
+colorscheme molokai
