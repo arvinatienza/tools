@@ -1,0 +1,10 @@
+#cloud-config
+
+users:  
+  - name: arvin
+    passwd: $1$YPaGVYz1$vMvVSkk7ywFu5j6DGyf9x/
+    ssh-authorized-keys: 
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/4cA4aIZv1OyvmuLDj+Dnn+UUB7j4IcovTnTur8qLNmrni4OOp1SJISocdlWP38Lzy3Rv/lZBp3JEdVP5yFRpC9yRXK8dIiasbBaLYOhI6vj3Swtqq7728grivLyuiOwLkb/NvglSr8FiZbofOvVhsnWMapAkeduUR6259CRp3UACMTYOK6mOX8ynE4PijyLNSe2PrhMjObK/Lka61m3CiXFZwfCRb2SsNzuQOHqtA6S4Tlu22YzVpO4rTeRiBZ5NyGJnWtrRx760z/XW3hQPdq6O6PJyuF/8i53ahmw+WOH9yQTeuBYpuw3XodBwvE41SZXElOL6K10hKooueVHV imported-openssh-key
+    groups:
+      - sudo
+      - docker
