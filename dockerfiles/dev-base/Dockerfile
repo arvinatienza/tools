@@ -14,6 +14,7 @@ RUN apt-get install -yq \
         exuberant-ctags \
         ack-grep \
         zsh \
+        rake \
 	&& rm -rf /var/lib/apt-lists/*
 
 RUN curl -L https://bit.ly/janus-bootstrap | bash
