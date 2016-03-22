@@ -1,6 +1,7 @@
 FROM ubuntu:15.10
 MAINTAINER Arvin Atienza <arvin.atienza@gmail.com>
 ENV LANG en_US.UTF-8
+ENV screen-256color
 
 RUN apt-get update
 
