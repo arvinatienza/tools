@@ -53,11 +53,7 @@ plugins=(git)
 
 # User configuration
 
-<<<<<<< HEAD
-  export PATH="/usr/local/bin:/usr/bin:/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Windows/System32/WindowsPowerShell/v1.0:/cygdrive/c/HashiCorp/Vagrant/bin:%USERPROFILE%/.dnx/bin:/cygdrive/c/Program Files/Microsoft DNX/Dnvm:/cygdrive/c/Program Files/Microsoft SQL Server/120/Tools/Binn:/cygdrive/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit:/cygdrive/c/Program Files (x86)/nodejs"
-=======
-export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/heroku/bin:/opt/local/bin:/opt/local/sbin:/Users/arvin/Applications/PebbleDev/PebbleSDK-2.8.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
->>>>>>> 01980b7c01aa4326693936d506c0d9b7880f2812
+export PATH="/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin::/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
