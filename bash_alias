@@ -1,2 +1,1 @@
-alias start-dev-base="docker run -it --rm -v $(pwd):/app arvin/dev-base"
-alias start-dev-php="docker run -it --rm -v $(pwd):/app arvin/dev-php"
+alias start-dev-base="docker run -it --rm -v $(pwd):/app -v /var/run/docker.sock:/var/run/docker.sock arvin/dev-base"
