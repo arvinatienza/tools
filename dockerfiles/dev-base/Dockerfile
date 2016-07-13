@@ -1,4 +1,4 @@
-FROM ubuntu:15.10
+FROM ubuntu:16.04
 MAINTAINER Arvin Atienza <arvin.atienza@gmail.com>
 ENV LANG en_US.UTF-8
 ENV TERM screen-256color
@@ -6,7 +6,6 @@ ENV TERM screen-256color
 RUN apt-get update
 
 RUN apt-get install -yq \
-        wget \
         curl \
         git \
         tmux \
@@ -16,6 +15,8 @@ RUN apt-get install -yq \
         ack-grep \
         zsh \
         rake \
+        nodejs \
+        npm \
 	&& rm -rf /var/lib/apt-lists/*
 
 RUN curl -L https://bit.ly/janus-bootstrap | bash
