@@ -1,0 +1,3 @@
+[submodule "vagrantfiles/lib/coreos-vagrant"]
+	path = vagrantfiles/lib/coreos-vagrant
+	url = http://github.com/coreos/coreos-vagrant

@@ -1,1 +1,0 @@
-alias start-dev-base="docker run -it --rm -v $(pwd):/app -v /var/run/docker.sock:/var/run/docker.sock arvin/dev-base"
