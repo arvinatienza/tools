@@ -1,2 +1,2 @@
 alias docker-compose="docker run -v \"\$(pwd)\":\"\$(pwd)\" -v /var/run/docker.sock:/var/run/docker.sock -e COMPOSE_PROJECT_NAME=\$(basename \"\$(pwd)\") -ti --rm --workdir=\"\$(pwd)\" dduportal/docker-compose:latest"
-alias start-dev="~/bin/start-dev"
+alias symfony="docker run -v \"\$(pwd)\":/var/www/html -v "$HOME/bin/symfony":/bin/symfony -ti --rm php:5.6-apache php /bin/symfony"
