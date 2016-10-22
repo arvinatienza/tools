@@ -10,9 +10,15 @@ CONTAINER_ID=$(docker ps -aq --filter="name=$CONTAINER_NAME")
 
 if [ -z "$CONTAINER_ID" ]; then
     #echo "does not exist: create one"
-    docker run -it --rm --name="$CONTAINER_NAME" -v "$(pwd)":/app arvin/dev-base
+    docker run -it --rm --name="$CONTAINER_NAME" \
+        -v /var/run/docker.sock:/var/run/docker.sock \
+        -v /usr/bin/docker:/usr/bin/docker \
+        -v "$(pwd)":"$(pwd)" \
+        --workdir="$(pwd)" \
+        arvin/dev-base
 else
     #echo "exists: start and connect to it";
     docker start $CONTAINER_ID && docker attach $CONTAINER_ID
 fi
 #docker run -it --rm --name="dev_$DIR" -v "$(pwd)":/app arvin/dev-base
+#alias startdev='docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -v "$(pwd)":"$(pwd)" --workdir="$(pwd)" arvin/dev-base'
