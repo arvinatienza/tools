@@ -9,7 +9,7 @@ ENV LC_ALL en_US.UTF-8
 
 RUN apt-get update
 RUN apt-get install -yq \
-        #sudo \
+        sudo \
         wget \
         curl \
         git \
@@ -30,25 +30,19 @@ RUN apt-get install -yq \
         php-mbstring \
 	&& rm -rf /var/lib/apt-lists/*
 
-RUN wget https://getcomposer.org/download/1.2.1/composer.phar -O /root/bin/composer.phar \
-    && pip install docker-compose \
-    && gem install shopify_theme \
+RUN gem install shopify_theme \
     && npm install -g webpack
 RUN ln -s /usr/bin/nodejs /usr/bin/node
+RUN useradd -ms /bin/zsh ubuntu && usermod -aG sudo ubuntu
 
-# pip install --upgrade pip
-# apt-get install php-xdebug -- vim plugin
+USER ubuntu
+WORKDIR /home/ubuntu
 
-#RUN useradd -ms /bin/zsh ubuntu sudo
-
-#USER ubuntu
-RUN curl -L https://bit.ly/janus-bootstrap | bash
 RUN curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | bash
-COPY ./tmux.conf /root/.tmux.conf
-COPY ./zshrc /root/.zshrc
-COPY ./vimrc.before /root/.vimrc.before
-COPY ./vimrc.after /root/.vimrc.after
-
-#WORKDIR /home/ubuntu
+RUN curl -L https://bit.ly/janus-bootstrap | bash
+COPY ./tmux.conf /home/ubuntu/.tmux.conf
+COPY ./zshrc /home/ubuntu/.zshrc
+COPY ./vimrc.before /home/ubuntu/.vimrc.before
+COPY ./vimrc.after /home/ubuntu/.vimrc.after
 
 CMD ["/bin/zsh"]
