@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM dev:16.04
 MAINTAINER Arvin Atienza <arvin.atienza@gmail.com>
 ENV TERM screen-256color
 
@@ -28,21 +28,31 @@ RUN apt-get install -yq \
         php \
         php-xml \
         php-mbstring \
+        php-mysql \
 	&& rm -rf /var/lib/apt-lists/*
 
 RUN gem install shopify_theme \
     && npm install -g webpack
 RUN ln -s /usr/bin/nodejs /usr/bin/node
-RUN useradd -ms /bin/zsh ubuntu && usermod -aG sudo ubuntu
+RUN useradd -ms /bin/zsh dev && usermod -aG sudo dev
 
-USER ubuntu
-WORKDIR /home/ubuntu
+WORKDIR /home/dev
+
+ENV PATH /home/dev/bin:$PATH
+RUN mkdir /var/shared && touch /var/shared/placeholder && chown -R dev:dev /var/shared
+VOLUME /var/shared
 
 RUN curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | bash
 RUN curl -L https://bit.ly/janus-bootstrap | bash
-COPY ./tmux.conf /home/ubuntu/.tmux.conf
-COPY ./zshrc /home/ubuntu/.zshrc
-COPY ./vimrc.before /home/ubuntu/.vimrc.before
-COPY ./vimrc.after /home/ubuntu/.vimrc.after
+ADD tmux.conf /home/dev/.tmux.conf
+ADD zshrc /home/dev/.zshrc
+ADD vimrc.before /home/dev/.vimrc.before
+ADD vimrc.after /home/dev/.vimrc.after
+# ADD gitconfig /home/dev/.gitconfig
 
+RUN ln -s /var/shared/.ssh
+
+RUN chown -R dev:dev /home/dev
+
+USER dev
 CMD ["/bin/zsh"]
