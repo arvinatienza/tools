@@ -1,3 +1,3 @@
-[submodule "vagrantfiles/lib/coreos-vagrant"]
-	path = vagrantfiles/lib/coreos-vagrant
-	url = http://github.com/coreos/coreos-vagrant
+[submodule "dockerfiles/dev-base/janus"]
+	path = dockerfiles/dev-base/janus
+	url = https://github.com/carlhuda/janus.git
