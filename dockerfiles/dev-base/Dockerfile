@@ -13,9 +13,6 @@ RUN apt-get install -yq \
         less \
         locales \
         mc \
-        #ngrok-server \
-        #nodejs \
-        #npm \
         php \
         php-xml \
         php-mbstring \
@@ -71,7 +68,10 @@ RUN curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/instal
 RUN curl -L https://bit.ly/janus-bootstrap | bash
 RUN mkdir /home/dev/.npm-global \
     && npm config set prefix '/home/dev/.npm-global' \
-    && npm install -g webpack yo generator-fountain-webapp
+    && npm install -g webpack yo generator-fountain-webapp angular-cli
+RUN mkdir /home/dev/.janus \
+    && cd /home/dev/.janus \
+    && git clone https://github.com/lumiliet/vim-twig
 
 # Add and Link shared configration
 USER root
