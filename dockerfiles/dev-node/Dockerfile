@@ -1,14 +1,19 @@
-FROM node:5
+FROM node:6.11.3
 MAINTAINER Arvin Atienza <arvin.atienza@gmail.com>
-RUN apt-get update && \
-    apt-get install -y \
-        aptitude
+
+RUN npm install -g \
+    @angular/cli \
+    nativescript \
+    cordova \
+    react \
+    react-native \
+    redux \
+    yo \
+    bower \
+    grunt-cli \
+    gulp \
+    webpack
+
 #VOLUME /usr/development/app
 #WORKDIR /usr/development/app
 #RUN npm install -g yo bower grunt-cli gulp grunt
-RUN useradd --create-home --shell /bin/bash non-root && \
-    usermod -aG sudo non-root && \
-    chown -R non-root:non-root /usr/development/app
-USER non-root
-EXPOSE 9000
-CMD ["gulp", "serve"]
