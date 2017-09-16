@@ -1,0 +1,4 @@
+alias projdir='cd /mnt/sda1/projects'
+alias dkr='sudo docker'
+alias dkrcomp='sudo docker-compose'
+alias dkrip='sudo docker inspect --format "{{.Name}} - {{range .NetworkSettings.Networks }}{{.IPAddress}}{{end}}" $(docker ps -aq)'
