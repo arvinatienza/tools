@@ -52,6 +52,7 @@ RUN mkdir /home/dev/.janus \
     && cd /home/dev/.janus \
     && git clone https://github.com/leafgarland/typescript-vim.git \
     && git clone https://github.com/lumiliet/vim-twig \
+    && git clone https://github.com/mattn/emmet-vim.git \
     && git clone https://github.com/tpope/vim-liquid.git
 
 # Add and Link shared configration
