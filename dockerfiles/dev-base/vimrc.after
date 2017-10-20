@@ -6,3 +6,6 @@ set shiftwidth=2
 set softtabstop=2
 
 colorscheme molokai
+
+noremap <TAB> <C-W>
+noremap <S-TAB> :tabnew<cr>
