@@ -5,7 +5,17 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
+set statusline+=\ %{fugitive#statusline()}
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
 colorscheme molokai
+" hi Normal guibg=NONE ctermbg=NONE
 
 noremap <TAB> <C-W>
 noremap <S-TAB> :tabnew<cr>
+
+noremap <F6> :SyntasticCheck<cr>
+
+

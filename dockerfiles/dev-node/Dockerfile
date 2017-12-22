@@ -17,3 +17,5 @@ RUN npm install -g \
 #VOLUME /usr/development/app
 #WORKDIR /usr/development/app
 #RUN npm install -g yo bower grunt-cli gulp grunt
+
+CMD ["/bin/bash"]

@@ -12,11 +12,14 @@ RUN apt-get install -yq \
         groff \
         locales \
         mc \
+        npm \
+        php \
         python \
         python-pip \
         rake \
         ruby \
         sudo \
+        tidy \
         tmux \
         vim \
         wget \
@@ -37,6 +40,11 @@ RUN gem install shopify_theme
 RUN pip install --upgrade \
         awscli \
         docker-compose
+RUN npm install --global \
+        angular-cli \
+        eslint \
+        sass-lint \
+        vue-cli
 
 # add dev user
 RUN useradd -ms /bin/zsh dev && usermod -aG sudo,docker dev
