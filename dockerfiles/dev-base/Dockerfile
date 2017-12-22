@@ -41,10 +41,8 @@ RUN pip install --upgrade \
         awscli \
         docker-compose
 RUN npm install --global \
-        angular-cli \
         eslint \
-        sass-lint \
-        vue-cli
+        sass-lint
 
 # add dev user
 RUN useradd -ms /bin/zsh dev && usermod -aG sudo,docker dev
