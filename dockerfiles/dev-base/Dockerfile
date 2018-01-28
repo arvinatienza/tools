@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:17.04
 MAINTAINER Arvin Atienza <arvin.atienza@gmail.com>
 
 # Install global software
@@ -72,7 +72,8 @@ ADD vimrc.after /home/dev/.vimrc.after
 RUN mkdir /var/shared \
     && touch /var/shared/placeholder \
     && ln -s /var/shared/.ssh \
-    && ln -s /var/shared/.gitconfig
+    && ln -s /var/shared/.gitconfig \
+    && ln -s /var/shared/.aws
 RUN chown -R dev:dev /var/shared && chown -R dev:dev /home/dev
 
 USER dev

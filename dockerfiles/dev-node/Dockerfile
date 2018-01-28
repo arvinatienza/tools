@@ -3,19 +3,18 @@ MAINTAINER Arvin Atienza <arvin.atienza@gmail.com>
 
 RUN npm install -g \
     @angular/cli \
-    nativescript \
+    bower \
     cordova \
+    grunt-cli \
+    gulp \
+    nativescript \
     react \
     react-native \
     redux \
-    yo \
-    bower \
-    grunt-cli \
-    gulp \
-    webpack
+    vue-cli \
+    webpack \
+    yo
 
-#VOLUME /usr/development/app
-#WORKDIR /usr/development/app
-#RUN npm install -g yo bower grunt-cli gulp grunt
+WORKDIR /app
 
 CMD ["/bin/bash"]
