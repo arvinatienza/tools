@@ -5,7 +5,6 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
-"remove line info in statusline
 set statusline=%f
 set statusline+=\ %{fugitive#statusline()}
 set statusline+=\ %{SyntasticStatuslineFlag()}
@@ -24,5 +23,6 @@ noremap <TAB> <C-W>
 noremap <S-TAB> :tabnew<cr>
 
 noremap <F6> :SyntasticCheck<cr>
+noremap <C-F6> :SyntasticReset<cr>
 
 

@@ -21,6 +21,7 @@ RUN apt-get install -yq \
         sudo \
         tidy \
         tmux \
+        tree \
         vim \
         wget \
         zsh \
@@ -40,9 +41,6 @@ RUN gem install shopify_theme
 RUN pip install --upgrade \
         awscli \
         docker-compose
-RUN npm install --global \
-        eslint \
-        sass-lint
 
 # add dev user
 RUN useradd -ms /bin/zsh dev && usermod -aG sudo,docker dev
