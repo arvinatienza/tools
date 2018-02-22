@@ -41,6 +41,14 @@ RUN gem install shopify_theme
 RUN pip install --upgrade \
         awscli \
         docker-compose
+RUN wget -O /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.11.3/terraform_0.11.3_linux_amd64.zip?_ga=2.268116363.466504797.1519324486-1474700218.1519324486 \
+        && unzip /tmp/terraform.zip \
+        && mv terraform /usr/local/bin
+RUN export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" \
+        && echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list \
+        && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - \
+        && apt-get update && apt-get install google-cloud-sdk \
+        && gcloud components install kubectl
 
 # add dev user
 RUN useradd -ms /bin/zsh dev && usermod -aG sudo,docker dev
