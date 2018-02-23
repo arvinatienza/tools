@@ -76,6 +76,7 @@ ADD zshrc /home/dev/.zshrc
 ADD zsh_aliases /home/dev/.zsh_aliases
 ADD vimrc.before /home/dev/.vimrc.before
 ADD vimrc.after /home/dev/.vimrc.after
+ADD power-overwhelming-ascii.txt /home/dev/power-overwhelming-ascii.txt
 
 RUN mkdir /var/shared \
     && touch /var/shared/placeholder \
