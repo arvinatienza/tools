@@ -1,9 +1,9 @@
-FROM ubuntu:17.04
+FROM ubuntu:16.04
 MAINTAINER Arvin Atienza <arvin.atienza@gmail.com>
 
 # Install global software
-RUN apt-get update
-RUN apt-get install -yq \
+RUN apt-get update \
+    && apt-get install -yq \
         ack-grep \
         curl \
         docker.io \
@@ -11,6 +11,7 @@ RUN apt-get install -yq \
         git \
         groff \
         locales \
+        lsb-release \
         mc \
         npm \
         php \
@@ -47,8 +48,9 @@ RUN wget -O /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.11.3/t
 RUN export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" \
         && echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list \
         && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - \
-        && apt-get update && apt-get install google-cloud-sdk \
-        && gcloud components install kubectl
+        && apt-get update && apt-get install -yq \
+            google-cloud-sdk \
+            kubectl
 
 # add dev user
 RUN useradd -ms /bin/zsh dev && usermod -aG sudo,docker dev
