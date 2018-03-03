@@ -1,3 +1,23 @@
 [submodule "dockerfiles/dev-base/janus"]
 	path = dockerfiles/dev-base/janus
 	url = https://github.com/carlhuda/janus.git
+[submodule "dockerfiles/dev-base/vim-plugins/typescript-vim"]
+	path = dockerfiles/dev-base/vim-plugins/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
+	branch = master
+[submodule "dockerfiles/dev-base/vim-plugins/vim-twig"]
+	path = dockerfiles/dev-base/vim-plugins/vim-twig
+	url = https://github.com/lumiliet/vim-twig
+	branch = master
+[submodule "dockerfiles/dev-base/vim-plugins/emmet-vim"]
+	path = dockerfiles/dev-base/vim-plugins/emmet-vim
+	url = https://github.com/mattn/emmet-vim.git
+	branch = master
+[submodule "dockerfiles/dev-base/vim-plugins/vim-liquid"]
+	path = dockerfiles/dev-base/vim-plugins/vim-liquid
+	url = https://github.com/tpope/vim-liquid.git
+	branch = master
+[submodule "dockerfiles/dev-base/vim-plugins/vim-bootstrap3-snippets"]
+	path = dockerfiles/dev-base/vim-plugins/vim-bootstrap3-snippets
+	url = https://github.com/chrisgillis/vim-bootstrap3-snippets.git
+	branch = master

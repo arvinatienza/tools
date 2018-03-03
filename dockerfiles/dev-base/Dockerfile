@@ -63,13 +63,7 @@ WORKDIR /home/dev
 USER dev
 RUN curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | bash
 RUN curl -L https://bit.ly/janus-bootstrap | bash
-RUN mkdir /home/dev/.janus \
-    && cd /home/dev/.janus \
-    && git clone https://github.com/leafgarland/typescript-vim.git \
-    && git clone https://github.com/lumiliet/vim-twig \
-    && git clone https://github.com/mattn/emmet-vim.git \
-    && git clone https://github.com/tpope/vim-liquid.git \
-    && git clone https://github.com/chrisgillis/vim-bootstrap3-snippets.git
+ADD vim-plugins /home/dev/.janus
 
 # Add and Link shared configration
 USER root
