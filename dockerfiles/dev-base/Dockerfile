@@ -22,6 +22,7 @@ RUN apt-get update \
         sudo \
         tidy \
         tmux \
+        tmuxinator \
         tree \
         vim \
         wget \
@@ -67,7 +68,8 @@ RUN mkdir /home/dev/.janus \
     && git clone https://github.com/leafgarland/typescript-vim.git \
     && git clone https://github.com/lumiliet/vim-twig \
     && git clone https://github.com/mattn/emmet-vim.git \
-    && git clone https://github.com/tpope/vim-liquid.git
+    && git clone https://github.com/tpope/vim-liquid.git \
+    && git clone https://github.com/chrisgillis/vim-bootstrap3-snippets.git
 
 # Add and Link shared configration
 USER root
