@@ -9,6 +9,7 @@ RUN apt-get update \
         docker.io \
         exuberant-ctags \
         git \
+        git-flow \
         groff \
         locales \
         lsb-release \
