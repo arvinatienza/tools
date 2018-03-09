@@ -30,6 +30,9 @@ RUN apt-get update \
         zsh \
 	&& rm -rf /var/lib/apt-lists/*
 
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash \
+  && apt-get install git-lfs
+
 # configure base system
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 RUN locale-gen en_US.UTF-8
