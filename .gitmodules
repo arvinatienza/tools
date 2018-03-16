@@ -21,3 +21,7 @@
 	path = dockerfiles/dev-base/vim-plugins/vim-bootstrap3-snippets
 	url = https://github.com/chrisgillis/vim-bootstrap3-snippets.git
 	branch = master
+[submodule "dockerfiles/dev-base/vim-plugins/vim-terraform"]
+	path = dockerfiles/dev-base/vim-plugins/vim-terraform
+	url = https://github.com/hashivim/vim-terraform
+	branch = master
