@@ -25,4 +25,4 @@ noremap <S-TAB> :tabnew<cr>
 noremap <F6> :SyntasticCheck<cr>
 noremap <C-F6> :SyntasticReset<cr>
 
-
+noremap <F2> :set number! relativenumber!<cr>
