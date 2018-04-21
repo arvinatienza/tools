@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -yq \
       git \
       git-flow \
       groff \
+      jq \
       locales \
       lsb-release \
       mc \

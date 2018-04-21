@@ -25,5 +25,5 @@ noremap <S-TAB> :tabnew<cr>
 noremap <F6> :SyntasticCheck<cr>
 noremap <C-F6> :SyntasticReset<cr>
 
-nnoremap <leader>l :set number! relativenumber! <bar> GitGutterToggle<cr>
+nnoremap <leader>tl :set number! relativenumber! <bar> GitGutterToggle<cr>
 nnoremap <leader>k :tabnew <bar> r !
