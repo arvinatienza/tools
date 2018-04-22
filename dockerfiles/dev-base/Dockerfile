@@ -33,6 +33,11 @@ RUN apt-get update && apt-get install -yq \
 RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash \
   && apt-get install git-lfs
 
+RUN curl -O https://prerelease.keybase.io/keybase_amd64.deb \
+  && dpkg -i keybase_amd64.deb >> /dev/null \
+  && apt-get install -f \
+  && run_keybase
+
 # configure base system
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 RUN locale-gen en_US.UTF-8
