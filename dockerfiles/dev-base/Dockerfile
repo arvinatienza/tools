@@ -7,10 +7,13 @@ RUN apt-get update && apt-get install -yq \
       curl \
       docker.io \
       exuberant-ctags \
+      fuse \
       git \
       git-flow \
       groff \
       jq \
+      libappindicator1 \
+      libgconf-2-4 \
       locales \
       lsb-release \
       mc \
@@ -34,9 +37,7 @@ RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.d
   && apt-get install git-lfs
 
 RUN curl -O https://prerelease.keybase.io/keybase_amd64.deb \
-  && dpkg -i keybase_amd64.deb >> /dev/null \
-  && apt-get install -f \
-  && run_keybase
+  && dpkg -i keybase_amd64.deb
 
 # configure base system
 RUN ln -s /usr/bin/nodejs /usr/bin/node
@@ -62,21 +63,21 @@ RUN export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" \
       && apt-get update && apt-get install -yq \
           google-cloud-sdk \
           kubectl
+ADD lib/todo.txt-cli /tmp/todo.txt-cli
+RUN cd /tmp/todo.txt-cli && make && make install
+
+RUN mkdir /var/shared && touch /var/shared/placeholder
 
 # add dev user
 RUN useradd -ms /bin/zsh dev && usermod -aG sudo,docker dev
 RUN echo "dev:dev!" | chpasswd
 
-WORKDIR /home/dev
-
 # Install user software
 USER dev
+WORKDIR /home/dev
 RUN curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | bash
 RUN curl -L https://bit.ly/janus-bootstrap | bash
 ADD vim-plugins /home/dev/.janus
-
-# Add and Link shared configration
-USER root
 ADD tmux.conf /home/dev/.tmux.conf
 ADD zshrc /home/dev/.zshrc
 ADD zsh_aliases /home/dev/.zsh_aliases
@@ -84,13 +85,12 @@ ADD vimrc.before /home/dev/.vimrc.before
 ADD vimrc.after /home/dev/.vimrc.after
 ADD power-overwhelming-ascii.txt /home/dev/power-overwhelming-ascii.txt
 
-RUN mkdir /var/shared \
-      && touch /var/shared/placeholder \
-      && ln -s /var/shared/.ssh \
-      && ln -s /var/shared/.gitconfig \
-      && ln -s /var/shared/.aws
-RUN chown -R dev:dev /var/shared && chown -R dev:dev /home/dev
+RUN ln -s /var/shared/.aws \
+    && ln -s /var/shared/.gitconfig \
+    && ln -s /var/shared/.gnupg \
+    && ln -s /var/shared/.ssh \
+    && ln -s /var/shared/.todo
+#RUN chown -R dev:dev /var/shared && chown -R dev:dev /home/dev
 
-USER dev
 VOLUME /var/shared
 CMD ["/bin/zsh"]
