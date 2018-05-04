@@ -8,3 +8,4 @@ alias dc='sudo docker-compose'
 alias tmux='tmux -2'
 alias power-overwhelming='cat ~/power-overwhelming-ascii.txt'
 alias url-friendly-files="find -name '* *' -type f | rename 's/ /_/g' && rename -f 'y/A-Z/a-z/' *"
+alias git-remove-merged='git branch --merged | egrep -v "(^\*|master|develop)" | xargs git branch -d'
