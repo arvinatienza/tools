@@ -27,4 +27,4 @@ noremap <C-F6> :SyntasticReset<cr>
 
 nnoremap <leader>tl :set number! relativenumber! <bar> GitGutterToggle<cr>
 nnoremap <leader>k :tabnew <bar> r !
-nnoremap <leader>s :mksession! ~/vim-sessions/
+nnoremap <leader>s :mksession! ~/.vim-sessions/

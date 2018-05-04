@@ -50,7 +50,9 @@ ENV TERM screen-256color
 ENV EDITOR vim
 
 # Continue installing global software
+# TDOD: move this to another project similar to node projects
 RUN gem install shopify_theme
+
 RUN pip install --upgrade \
       awscli \
       docker-compose
@@ -89,8 +91,9 @@ RUN ln -s /var/shared/.aws \
     && ln -s /var/shared/.gitconfig \
     && ln -s /var/shared/.gnupg \
     && ln -s /var/shared/.ssh \
-    && ln -s /var/shared/.todo
-#RUN chown -R dev:dev /var/shared && chown -R dev:dev /home/dev
+    && ln -s /var/shared/.todo \
+    && ln -s /var/shared/.vim-sessions
+RUN chown -R dev:dev /var/shared && chown -R dev:dev /home/dev
 
 VOLUME /var/shared
 CMD ["/bin/zsh"]
