@@ -56,7 +56,7 @@ RUN gem install shopify_theme
 RUN pip install --upgrade \
       awscli \
       docker-compose
-RUN wget -O /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.11.3/terraform_0.11.3_linux_amd64.zip?_ga=2.268116363.466504797.1519324486-1474700218.1519324486 \
+RUN wget -O /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip \
       && unzip /tmp/terraform.zip \
       && mv terraform /usr/local/bin
 RUN export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" \
