@@ -1,3 +1,6 @@
+# TODO - remove node dependency
+# TODO - remove shopify dependency?
+# TODO - install heroku? per project
 FROM ubuntu:16.04
 MAINTAINER Arvin Atienza <arvin.atienza@gmail.com>
 
