@@ -13,7 +13,6 @@ set statusline+=%=
 set statusline+=[%l:%c]
 
 colorscheme molokai
-"hi Normal ctermbg=NONE
 hi Normal ctermbg=none
 hi NonText ctermbg=none
 hi LineNr ctermbg=none
@@ -27,4 +26,6 @@ noremap <C-F6> :SyntasticReset<cr>
 
 nnoremap <leader>tl :set number! relativenumber! <bar> GitGutterToggle<cr>
 nnoremap <leader>k :tabnew <bar> r !
-nnoremap <leader>s :mksession! ~/.vim-sessions/
+
+exec 'nnoremap <leader>ss :mksession! ' . g:session_dir . '*.vim<C-D><BS><BS><BS><BS><BS>'
+exec 'nnoremap <leader>sr :source ' . g:session_dir . '*.vim<C-D><BS><BS><BS><BS><BS>'
