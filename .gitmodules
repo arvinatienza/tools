@@ -25,6 +25,3 @@
 	path = dockerfiles/dev-base/vim-plugins/vim-terraform
 	url = https://github.com/hashivim/vim-terraform
 	branch = master
-[submodule "dockerfiles/dev-base/lib/todo.txt-cli"]
-	path = dockerfiles/dev-base/lib/todo.txt-cli
-	url = https://github.com/todotxt/todo.txt-cli
