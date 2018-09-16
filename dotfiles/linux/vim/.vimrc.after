@@ -1,0 +1,31 @@
+set relativenumber
+set colorcolumn=81
+set cursorline
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+
+set statusline=%f
+set statusline+=\ %{fugitive#statusline()}
+set statusline+=\ %{SyntasticStatuslineFlag()}
+set statusline+=\ %#warningmsg#
+set statusline+=%=
+set statusline+=[%l:%c]
+
+colorscheme molokai
+hi Normal ctermbg=none
+hi NonText ctermbg=none
+hi LineNr ctermbg=none
+hi ColorColumn ctermbg=52
+
+noremap <TAB> <C-W>
+noremap <S-TAB> :tabnew<cr>
+
+noremap <F6> :SyntasticCheck<cr>
+noremap <C-F6> :SyntasticReset<cr>
+
+nnoremap <leader>tl :set number! relativenumber! <bar> GitGutterToggle<cr>
+nnoremap <leader>k :tabnew <bar> r !
+
+exec 'nnoremap <leader>ss :mksession! ' . g:session_dir . '*.vim<C-D><BS><BS><BS><BS><BS>'
+exec 'nnoremap <leader>sr :source ' . g:session_dir . '*.vim<C-D><BS><BS><BS><BS><BS>'
