@@ -1,16 +1,16 @@
-FROM node:6.11.3
+FROM node:8.11.4-alpine
 MAINTAINER Arvin Atienza <arvin.atienza@gmail.com>
 
 RUN npm install -g \
     @angular/cli \
     bower \
     cordova \
+    firebase-tools \
     grunt-cli \
     gulp \
     nativescript \
-    react \
+    puppeteer-core \
     react-native \
-    redux \
     vue-cli \
     webpack \
     yo
