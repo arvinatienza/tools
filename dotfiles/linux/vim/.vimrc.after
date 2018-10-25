@@ -13,10 +13,10 @@ set statusline+=%=
 set statusline+=[%l:%c]
 
 "set background=dark
-"colorscheme molokai
+colorscheme molokai
 "colorscheme material-theme
 "colorscheme hybrid_material
-colorscheme material
+"colorscheme material
 hi Normal ctermbg=none
 hi NonText ctermbg=none
 hi LineNr ctermbg=none
