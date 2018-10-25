@@ -4,6 +4,8 @@
 #alias docker-ips='sudo docker inspect --format "{{.Name}} - {{range .NetworkSettings.Networks }}{{.IPAddress}}{{end}}" $(docker ps -aq)'
 #alias dc='sudo docker-compose'
 #alias tmux='tmux -2'
+alias mux='tmuxinator'
 alias power-overwhelming='cat ~/power-overwhelming-ascii.txt'
 alias url-friendly-files="find -name '* *' -type f | rename 's/ /_/g' && rename -f 'y/A-Z/a-z/' *"
-alias git-remove-merged='git branch --merged | egrep -v "(^\*|master|develop)" | xargs git branch -d'
+alias git-clean-branches='git branch --merged | egrep -v "(^\*|master|develop)" | xargs git branch -d'
+alias mux="tmuxinator"
