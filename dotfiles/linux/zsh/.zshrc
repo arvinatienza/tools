@@ -1,3 +1,5 @@
+export WINHOME="/c/Users/a_ati"
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -8,6 +10,7 @@
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
+#ZSH_THEME="materialshell"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -62,7 +65,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git docker docker-compose
+  git, docker, docker-compose
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -96,4 +99,9 @@ export EDITOR='vim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
 source ~/.zsh_aliases
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.janus/vim-hybrid-material/base16-material/base16-material.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
