@@ -5,22 +5,25 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
-set statusline=%f
-set statusline+=\ %{fugitive#statusline()}
-set statusline+=\ %{SyntasticStatuslineFlag()}
-set statusline+=\ %#warningmsg#
-set statusline+=%=
-set statusline+=[%l:%c]
+"set statusline=%f
+"set statusline+=\ %{fugitive#statusline()}
+"set statusline+=\ %{SyntasticStatuslineFlag()}
+"set statusline+=\ %#warningmsg#
+"set statusline+=%=
+"set statusline+=[%l:%c]
 
 "set background=dark
-colorscheme molokai
+"colorscheme vim-material
+
+"set background=dark
+colorscheme material-monokai
 "colorscheme material-theme
-"colorscheme hybrid_material
+""colorscheme hybrid_material
 "colorscheme material
-hi Normal ctermbg=none
-hi NonText ctermbg=none
-hi LineNr ctermbg=none
-"hi ColorColumn ctermbg=52
+"hi Normal ctermbg=none
+"hi NonText ctermbg=none
+"hi LineNr ctermbg=none
+hi ColorColumn ctermbg=52
 
 noremap <TAB> <C-W>
 noremap <S-TAB> :tabnew<cr>

@@ -1,10 +1,13 @@
-export WINHOME="/c/Users/a_ati"
+#export WINHOME="/c/Users/a_ati"
+#export TERM=xterm-256color
+export GPG_TTY=$(tty)
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -65,7 +68,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git, docker, docker-compose
+  git, docker, docker-compose, zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -103,5 +106,5 @@ export EDITOR='vim'
 source ~/.zsh_aliases
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.janus/vim-hybrid-material/base16-material/base16-material.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+#BASE16_SHELL="$HOME/.janus/vim-hybrid-material/base16-material/base16-material.dark.sh"
+#[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
