@@ -28,12 +28,3 @@
 [submodule "dotfiles/linux/vim/.janus/vim-airline"]
 	path = dotfiles/linux/vim/.janus/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
-[submodule "dotfiles/linux/vim/.janus/lightline.vim"]
-	path = dotfiles/linux/vim/.janus/lightline.vim
-	url = https://github.com/itchyny/lightline.vim.git
-[submodule "dotfiles/linux/vim/.janus/tmuxline.vim"]
-	path = dotfiles/linux/vim/.janus/tmuxline.vim
-	url = https://github.com/edkolev/tmuxline.vim.git
-[submodule "dotfiles/linux/vim/.janus/vim-material-monokai"]
-	path = dotfiles/linux/vim/.janus/vim-material-monokai
-	url = https://github.com/skielbasa/vim-material-monokai.git

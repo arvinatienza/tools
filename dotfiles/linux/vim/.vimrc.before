@@ -4,9 +4,20 @@ let g:session_dir = $HOME . '/.vim-sessions/'
 
 let g:NERDTreeQuitOnOpen = 1
 
-"let g:material_theme_style = 'dark'
-"let g:airline_theme = 'material'
+" Syntastic configuration
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 
+" Syntastic configuration for PHP
+"let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+"let g:syntastic_php_phpcs_exec = './bin/phpcs'
+"let g:syntastic_php_phpcs_args = '--standard=psr4'
+"let g:syntastic_php_phpmd_exec = './bin/phpmd'
+"let g:syntastic_php_phpmd_post_args = 'cleancode,codesize,controversial,design,unusedcode'
+
+" Syntastic configuration for Javascript
 "let g:syntastic_always_populate_loc_list = 1
 "let g:syntastic_auto_loc_list = 1
 "let g:syntastic_check_on_open = 1
@@ -16,18 +27,39 @@ let g:NERDTreeQuitOnOpen = 1
 "let g:syntastic_sass_checkers=["sasslint"]
 "let g:syntastic_scss_checkers=["sasslint"]
 
-let g:tmuxline_separators = {
-    \ 'left' : '',
-    \ 'left_alt': '>',
-    \ 'right' : '',
-    \ 'right_alt' : '<',
-    \ 'space' : ' '}
+
+
+
+"let g:material_theme_style = 'dark'
+"let g:airline_theme = 'material'
+"let g:quantum_black = 1
+"let g:airline_theme = 'quantum'
+
+"let g:tmuxline_separators = {
+    "\ 'left' : '',
+    "\ 'left_alt': '>',
+    "\ 'right' : '',
+    "\ 'right_alt' : '<',
+    "\ 'space' : ' '}
+
+"if (has("termguicolors"))
+    "set termguicolors
+"endif
+"
+"let g:airline_theme='material'
+"let g:airline_theme='simple'
+let g:airline_theme='minimalist'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
+"let g:material_theme_style = 'dark'
 
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
+    let g:airline_symbols = {}
 endif
 
-if !has('gui_running')
-  set t_Co=256
-endif
+"if !has('gui_running')
+    "set t_Co=256
+"endif
+
