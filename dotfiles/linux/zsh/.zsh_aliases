@@ -6,4 +6,5 @@
 alias power-overwhelming='cat ~/power-overwhelming-ascii.txt'
 alias url-friendly-files="find . -name '* *' -type f | rename 's/ /_/g' && rename -f 'y/A-Z/a-z/' *"
 alias git-clean-branches='git branch --merged | egrep -v "(^\*|master|develop)" | xargs git branch -d'
+alias tmux="tmux -u -2"
 alias mux="tmuxinator"

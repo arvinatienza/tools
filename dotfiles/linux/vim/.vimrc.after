@@ -1,3 +1,8 @@
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+
 set relativenumber
 set colorcolumn=81
 set cursorline
@@ -18,8 +23,9 @@ set expandtab
 "set statusline+=[%l:%c]
 
 "set background=dark
-"set termguicolors
 "colorscheme material
+"colorscheme minimalist
+"set termguicolors
 "colorscheme vim-material
 
 "set background=dark
@@ -32,9 +38,9 @@ set expandtab
 "hi LineNr ctermbg=none
 "hi ColorColumn ctermbg=52
 "
-set t_Co=256
-syntax on
-colorscheme minimalist
+"set t_Co=256
+"syntax on
+"colorscheme minimalist
 
 noremap <TAB> <C-W>
 noremap <S-TAB> :tabnew<cr>

@@ -25,6 +25,36 @@
 	path = dockerfiles/dev-base/vim-plugins/vim-terraform
 	url = https://github.com/hashivim/vim-terraform
 	branch = master
+
+[submodule "dotfiles/linux/zsh/.zplug"]
+	path = dotfiles/linux/zsh/.zplug
+	url = https://github.com/zplug/zplug
+	branch = master
 [submodule "dotfiles/linux/vim/.janus/vim-airline"]
 	path = dotfiles/linux/vim/.janus/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
+	branch = master
+[submodule "dotfiles/linux/vim/.janus/vim-airline-themes"]
+	path = dotfiles/linux/vim/.janus/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git
+	branch = master
+[submodule "dotfiles/linux/vim/.janus/emmet-vim"]
+  path = dotfiles/linux/vim/.janus/emmet-vim
+  url = https://github.com/mattn/emmet-vim.git
+	branch = master
+[submodule "dotfiles/linux/vim/.janus/base16-vim"]
+  path = dotfiles/linux/vim/.janus/base16-vim
+  url = https://github.com/chriskempson/base16-vim
+	branch = master
+[submodule "dotfiles/linux/vim/.janus/material.vim"]
+  path = dotfiles/linux/vim/.janus/material.vim
+  url = https://github.com/kaicataldo/material.vim.git
+	branch = master
+[submodule "dotfiles/linux/vim/.janus/vim-terraform"]
+	path = dotfiles/linux/vim/.janus/vim-terraform
+	url = https://github.com/hashivim/vim-terraform
+	branch = master
+[submodule "dotfiles/linux/vim/.janus/tmuxline.vim"]
+	path = dotfiles/linux/vim/.janus/tmuxline.vim
+	url = https://github.com/vim-airline/vim-airline-themes.git
+	branch = master

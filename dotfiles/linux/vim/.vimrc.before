@@ -29,11 +29,29 @@ let g:NERDTreeQuitOnOpen = 1
 
 
 
+"let g:airline_theme = 'base16_monokai'
+let g:airline_theme = 'material'
 
-"let g:material_theme_style = 'dark'
-"let g:airline_theme = 'material'
-"let g:quantum_black = 1
-"let g:airline_theme = 'quantum'
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+"let g:tmuxline_preset = {
+      "\'win'  : '#I #W',
+      "\'cwin' : '#I #W',
+      "\'y'    : '#(date)',
+      "\'z'    : '#H'}
+
+"let g:tmuxline_preset = {
+      "\'a'    : '#S',
+      "\'b'    : '#W',
+      "\'c'    : '#H',
+      "\'win'  : '#I #W',
+      "\'cwin' : '#I #W',
+      "\'x'    : '%a',
+      "\'y'    : '#W %R',
+      "\'z'    : '#H'}
 
 "let g:tmuxline_separators = {
     "\ 'left' : '',
@@ -41,25 +59,3 @@ let g:NERDTreeQuitOnOpen = 1
     "\ 'right' : '',
     "\ 'right_alt' : '<',
     "\ 'space' : ' '}
-
-"if (has("termguicolors"))
-    "set termguicolors
-"endif
-"
-"let g:airline_theme='material'
-"let g:airline_theme='simple'
-let g:airline_theme='minimalist'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-
-"let g:material_theme_style = 'dark'
-
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-"if !has('gui_running')
-    "set t_Co=256
-"endif
-
