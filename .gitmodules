@@ -1,6 +1,10 @@
 [submodule "dockerfiles/dev-base/janus"]
 	path = dockerfiles/dev-base/janus
 	url = https://github.com/carlhuda/janus.git
+[submodule "dockerfiles/dev-base/vim-plugins/vim-terraform"]
+	path = dockerfiles/dev-base/vim-plugins/vim-terraform
+	url = https://github.com/hashivim/vim-terraform
+	branch = master
 [submodule "dockerfiles/dev-base/vim-plugins/typescript-vim"]
 	path = dockerfiles/dev-base/vim-plugins/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
