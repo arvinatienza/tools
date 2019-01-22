@@ -49,3 +49,6 @@
 [submodule "dotfiles/linux/vim/.janus-disabled/tmuxline.vim"]
 	path = dotfiles/linux/vim/.janus-disabled/tmuxline.vim
 	url = https://github.com/edkolev/tmuxline.vim.git
+[submodule "dotfiles/linux/vim/.vim"]
+	path = dotfiles/linux/vim/.vim
+	url = https://github.com/carlhuda/janus.git
