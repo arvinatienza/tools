@@ -1,26 +1,46 @@
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+
 set relativenumber
 set colorcolumn=81
 set cursorline
-set expandtab
+"set tabstop=4
+"set shiftwidth=4
+"set softtabstop=4
+"set expandtab
+set tabstop=2
 set shiftwidth=2
 set softtabstop=2
+set expandtab
 
-set statusline=%f
-set statusline+=\ %{fugitive#statusline()}
-set statusline+=\ %{SyntasticStatuslineFlag()}
-set statusline+=\ %#warningmsg#
-set statusline+=%=
-set statusline+=[%l:%c]
+"set statusline=%f
+"set statusline+=\ %{fugitive#statusline()}
+"set statusline+=\ %{SyntasticStatuslineFlag()}
+"set statusline+=\ %#warningmsg#
+"set statusline+=%=
+"set statusline+=[%l:%c]
 
 "set background=dark
-colorscheme molokai
-"colorscheme material-theme
-"colorscheme hybrid_material
 "colorscheme material
-hi Normal ctermbg=none
-hi NonText ctermbg=none
-hi LineNr ctermbg=none
+"colorscheme minimalist
+"set termguicolors
+"colorscheme vim-material
+
+"set background=dark
+"colorscheme material-monokai
+"colorscheme material-theme
+""colorscheme hybrid_material
+"colorscheme material
+"hi Normal ctermbg=none
+"hi NonText ctermbg=none
+"hi LineNr ctermbg=none
 "hi ColorColumn ctermbg=52
+"
+"set t_Co=256
+"syntax on
+"colorscheme minimalist
 
 noremap <TAB> <C-W>
 noremap <S-TAB> :tabnew<cr>
@@ -33,3 +53,8 @@ nnoremap <leader>k :tabnew <bar> r !
 
 exec 'nnoremap <leader>ss :mksession! ' . g:session_dir . '*.vim<C-D><BS><BS><BS><BS><BS>'
 exec 'nnoremap <leader>sr :source ' . g:session_dir . '*.vim<C-D><BS><BS><BS><BS><BS>'
+
+" Allow per project config
+set exrc
+set secure
+

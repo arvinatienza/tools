@@ -4,16 +4,58 @@ let g:session_dir = $HOME . '/.vim-sessions/'
 
 let g:NERDTreeQuitOnOpen = 1
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" Syntastic configuration
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+
+" Syntastic configuration for PHP
+"let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+"let g:syntastic_php_phpcs_exec = './bin/phpcs'
+"let g:syntastic_php_phpcs_args = '--standard=psr4'
+"let g:syntastic_php_phpmd_exec = './bin/phpmd'
+"let g:syntastic_php_phpmd_post_args = 'cleancode,codesize,controversial,design,unusedcode'
+
+" Syntastic configuration for Javascript
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 "let g:syntastic_javascript_checkers=["jslint", "eslint"]
 "let g:syntastic_javascript_eslint_exe = 'npm run lint --'
 "let g:syntastic_sass_checkers=["sasslint"]
 "let g:syntastic_scss_checkers=["sasslint"]
 
-"let g:airline_powerline_fonts = 1
-"if !exists('g:airline_symbols')
-  "let g:airline_symbols = {}
-"endif
+
+
+"let g:airline_theme = 'base16_monokai'
+let g:airline_theme = 'material'
+
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+"let g:tmuxline_preset = {
+      "\'win'  : '#I #W',
+      "\'cwin' : '#I #W',
+      "\'y'    : '#(date)',
+      "\'z'    : '#H'}
+
+"let g:tmuxline_preset = {
+      "\'a'    : '#S',
+      "\'b'    : '#W',
+      "\'c'    : '#H',
+      "\'win'  : '#I #W',
+      "\'cwin' : '#I #W',
+      "\'x'    : '%a',
+      "\'y'    : '#W %R',
+      "\'z'    : '#H'}
+
+"let g:tmuxline_separators = {
+    "\ 'left' : '',
+    "\ 'left_alt': '>',
+    "\ 'right' : '',
+    "\ 'right_alt' : '<',
+    "\ 'space' : ' '}

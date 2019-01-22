@@ -1,11 +1,10 @@
 # TODO: add image resize
 # TODO: add csv to json
 # TODO: Add timestampp
+# TODO: script to replace html-entities (registers, trademarks, etc)
 #alias docker-ips='sudo docker inspect --format "{{.Name}} - {{range .NetworkSettings.Networks }}{{.IPAddress}}{{end}}" $(docker ps -aq)'
-#alias dc='sudo docker-compose'
-#alias tmux='tmux -2'
-alias mux='tmuxinator'
 alias power-overwhelming='cat ~/power-overwhelming-ascii.txt'
-alias url-friendly-files="find -name '* *' -type f | rename 's/ /_/g' && rename -f 'y/A-Z/a-z/' *"
+alias url-friendly-files="find . -name '* *' -type f | rename 's/ /_/g' && rename -f 'y/A-Z/a-z/' *"
 alias git-clean-branches='git branch --merged | egrep -v "(^\*|master|develop)" | xargs git branch -d'
+alias tmux="tmux -u -2"
 alias mux="tmuxinator"
