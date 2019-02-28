@@ -2,6 +2,8 @@ export GPG_TTY=$(tty)
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export TERM=xterm-256color
+export EDITOR=vim
+export PATH=$PATH:~/.local/bin
 
 ZSH_THEME="materialshell"
 
@@ -24,3 +26,8 @@ zplug load #--verbose
 
 BASE16_SHELL=$HOME/.zsh/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+
+if command -v tmux &> /dev/null && [ -z "$TMUX" ];
+  then tmux attach -t default || tmux new -s default
+fi
+
