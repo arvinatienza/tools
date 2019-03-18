@@ -2,5 +2,8 @@
 .swp
 .swo
 
+dotfiles/linux/vim/.vim
+
+
 # DO NOT IGNORE
 !.keep
