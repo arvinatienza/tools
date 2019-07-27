@@ -1,0 +1,125 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# README
+# Requirements
+# - Vagrant
+# - Vagrant Plugins
+#   - vagrant-env
+#   - vagrant-vbguest
+#   - vagrant-disksize
+#
+# Create a .env file similar to below
+# VM_NAME="dev"
+# VM_SSH_HOST_PORT="2950"
+# VM_CPUS="2"
+# VM_MEMORY="4096"
+# VM_DISKSIZE="50GB"
+# VM_GUI="true"
+
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+VAGRANTFILE_API_VERSION = "2"
+
+# TODO: Install terraform, gcloud sdk, firebase-cli depending on client work
+$requiredSoftwareScript = <<SCRIPT
+    echo "Installing required programs..."
+    {
+        apt-get update 
+        apt-get install -y \
+	      curl \
+	      awscli \
+		  docker.io \
+	      exuberant-ctags \
+	      git \
+	      git-flow \
+	      gnupg2 \
+	      groff \
+	      gzip \
+	      jq \
+	      mc \
+	      nodejs \
+	      psmisc \
+	      rake \
+	      ruby \
+	      stow \
+	      tar \
+	      tidy \
+	      tmux \
+	      tmuxinator \
+	      tree \
+	      unzip \
+	      vim \
+	      wget \
+	      zip \
+	      zsh
+        apt-get clean
+        rm -rf /var/lib/apt/lists/*
+        ps aux | grep 'sshd:' | awk '{print $2}' | xargs kill
+
+	wget "https://releases.hashicorp.com/terraform/0.12.5/terraform_0.12.5_linux_amd64.zip" -O /tmp/terraform.zip
+	unzip /tmp/terraform.zip
+	rm /tmp/terraform.zip
+	mv terraform /bin
+	
+	snap install microk8s
+
+	usermod -aG docker vagrant
+	chsh --shell /bin/zsh vagrant
+
+    } > /dev/null
+    exit 0
+SCRIPT
+
+# TODO: Setup backup, Restore sensitive files, 
+$profileSetupScript = <<SCRIPT
+    echo "Setting up profile..."
+    {
+	# create folders
+	mkdir -p ~/projects ~/temp ~/documents
+
+	# clone tools
+	git clone https://github.com/arvinatienza/tools.git ~/.tools
+	cd ~/.tools
+	git submodule update --init --recursive
+
+	# stow dotfiles
+	cd ~/.tools/dotfiles/linux
+	stow -t ~ zsh
+	stow -t ~ vim
+	stow -t ~ tmux
+
+	# setup zsh
+	#cd ~/
+	#source ~/.zshrc
+	#zplug install
+	#source ~/.zshrc
+
+	# setup vim
+	#cd ~/.vim && rake
+
+    } > /dev/null
+    exit 0
+SCRIPT
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.env.enable
+
+  config.vm.box = "ubuntu/bionic64"
+  config.vm.hostname = ENV['VM_NAME']
+  config.vm.network "forwarded_port", guest: 22, host: ENV['VM_SSH_HOST_PORT']
+
+  config.disksize.size = ENV['VM_DISKSIZE'] || "50GB"
+  config.vbguest.auto_update = true
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.name = ENV['VM_NAME']
+    vb.gui = ENV['VM_GUI'] || false
+    vb.cpus = ENV['VM_CPUS'] || 1
+    vb.memory = ENV['VM_MEMORY'] || 1024
+  end
+
+  config.vm.provision "shell", inline: $requiredSoftwareScript
+  config.vm.provision "shell", inline: $profileSetupScript, privileged: false
+end
+
+
