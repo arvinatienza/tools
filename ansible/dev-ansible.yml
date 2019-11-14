@@ -1,0 +1,90 @@
+- hosts: localhost
+  tasks:
+   - name: Update and upgrade apt packages
+     apt:
+       upgrade: yes
+       update_cache: yes
+       cache_valid_time: 86400
+     become: yes
+     become_user: root
+
+   - name: Install packages
+     apt: name={{ item }} state=present
+     with_items:
+       - curl
+       - awscli
+       - docker.io
+       - docker-compose
+       - git
+       - git-flow
+       - gnupg2
+       - groff
+       - gzip
+       - jq
+       - links
+       - mc
+       - mosh
+       - nodejs
+       - npm
+       - packer
+       - psmisc
+       - rake
+       - ruby
+       - stow
+       - tar
+       - tidy
+       - tmux
+       - tmuxinator
+       - tree
+       - unzip
+       - vim
+       - wget
+       - zip
+       - zsh
+     become: yes
+     become_user: root
+
+   - name: Install Terraform
+     shell: |
+       wget "https://releases.hashicorp.com/terraform/0.12.5/terraform_0.12.5_linux_amd64.zip" -O /tmp/terraform.zip
+       unzip /tmp/terraform.zip
+       rm /tmp/terraform.zip
+       mv terraform /bin
+     become: yes
+     become_user: root
+
+     #- name: Get customization
+     #git:
+     #repo: https://github.com/arvinatienza/tools
+     #dest: /home/ubuntu/.tools
+
+     #- name: Configure Nginx
+     #lineinfile:
+     #dest: /etc/nginx/sites-enabled/default
+     #regexp: "{{ item.regexp }}"
+     #line: "{{ item.line }}"
+     #state: present
+     #with_items:
+     #- { regexp: 'root /var/www/html', line: 'root /var/www/html/front-desk-display;' }
+     #become: yes
+     #become_user: root
+
+     #- name: Copy latest app
+     #copy:
+     #src: ../files/pi-signage/var/www/html/front-desk-display
+     #dest: /var/www/html
+     #owner: www-data
+     #group: www-data
+     #mode: 0755
+     #become: yes
+     #become_user: root
+
+     #- name: Restart server
+     #command: /sbin/reboot
+     #become: yes
+     #become_user: root
+
+     #- name: Wait for the server to finish rebooting
+     #local_action: wait_for host="{{ inventory_hostname }}" search_regex=OpenSSH port=22 timeout=700
+     #become: yes
+     #become_user: root
