@@ -29,6 +29,7 @@
        - packer
        - psmisc
        - rake
+       - rename
        - ruby
        - stow
        - tar
