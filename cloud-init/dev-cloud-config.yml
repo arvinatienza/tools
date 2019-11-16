@@ -1,0 +1,28 @@
+#cloud-config
+
+
+groups:
+  - ubuntu: [root,sys]
+  - cloud-users
+
+users:
+  - name: arvin
+    gecos: Arvin Atienza
+    primary_group: arvin
+    groups: users
+    ssh_import_id: arvin
+    lock_passwd: false
+    passwd:
+
+users:
+  - name: arvin
+    ssh-authorized-keys:
+      - ssh-rsa
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    shell: /bin/zsh
+  - name: demo
+
+runcmd:
+  - sed -i -e '/^Port/s/^.*$/Port 4444/' etc/ssh/sshd_config
+  - sed -i -e '/^PermitRootLogin/s/^.*$/PermitRootLogin no/' /etc/ssh/sshd_config
+  - sed -i -e '$aAllowUsers demo' /etc/ssh/sshd_config
