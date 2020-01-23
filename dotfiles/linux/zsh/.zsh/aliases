@@ -4,7 +4,7 @@
 # TODO: script to replace html-entities (registers, trademarks, etc)
 #alias docker-ips='sudo docker inspect --format "{{.Name}} - {{range .NetworkSettings.Networks }}{{.IPAddress}}{{end}}" $(docker ps -aq)'
 alias power-overwhelming='cat ~/.zsh/power-overwhelming-ascii.txt'
-alias url-friendly-files="find . -name '* *' -type f | rename 's/ /_/g' && rename -f 'y/A-Z/a-z/' *"
-alias git-clean-branches='git branch --merged | egrep -v "(^\*|master|develop)" | xargs git branch -d'
+alias rename-files-for-web="find . -name '* *' -type f | rename 's/ /_/g' && rename -f 'y/A-Z/a-z/' *"
+alias clean-git-branches='git branch --merged | egrep -v "(^\*|master|develop)" | xargs git branch -d'
 alias tmux="tmux -u -2"
 alias mux="tmuxinator"
