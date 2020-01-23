@@ -31,3 +31,6 @@ BASE16_SHELL=$HOME/.zsh/base16-shell/
 if command -v tmux &> /dev/null && [ -z "$TMUX" ];
   then tmux attach -t default || tmux new -s default
 fi;
+
+bindkey '^r' history-incremental-search-backward
+bindkey '^R' history-incremental-pattern-search-backward

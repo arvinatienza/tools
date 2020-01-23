@@ -1,3 +1,15 @@
-function topten() {
+function top-ten-commands() {
   history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n10
+}
+
+function generate-reponsive-images-from() {
+  filename=$(basename -- "$1")
+  extension="${filename##*.}"
+  filename="${filename%.*}"
+
+  convert $1 -resize 480  "$filename-xs.$extension"
+  convert $1 -resize 768  "$filename-sm.$extension"
+  convert $1 -resize 992  "$filename-md.$extension"
+  convert $1 -resize 1200 "$filename-lg.$extension"
+  convert $1 -resize 2400 "$filename-xl.$extension"
 }
