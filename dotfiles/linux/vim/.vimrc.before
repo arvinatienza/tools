@@ -59,3 +59,13 @@ endif
     "\ 'right' : '',
     "\ 'right_alt' : '<',
     "\ 'space' : ' '}
+
+
+let g:vdebug_features = { 'max_children': 256 }
+let g:vdebug_options = {}
+let g:vdebug_options["break_on_open"] = 0
+let g:vdebug_options["path_maps"] = { '/var/www/html': getcwd() }
+"let g:vdebug_options["port"] = 9000
+
+call janus#disable_plugin('gundo')
+
