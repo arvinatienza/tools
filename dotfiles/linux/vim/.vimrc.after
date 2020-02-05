@@ -3,13 +3,13 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
-set relativenumber
-set colorcolumn=81
-set cursorline
+"set relativenumber
+"set colorcolumn=81
+"set cursorline
+
 "set tabstop=4
 "set shiftwidth=4
 "set softtabstop=4
-"set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -42,15 +42,37 @@ set expandtab
 "syntax on
 "colorscheme minimalist
 
+" window management
 noremap <TAB> <C-W>
 noremap <S-TAB> :tabnew<cr>
+noremap <TAB>rl 10<C-w>>
+noremap <TAB>rh 10<C-w><
+noremap <TAB>rk 10<C-w>-
+noremap <TAB>rj 10<C-w>+
 
-noremap <F6> :SyntasticCheck<cr>
-noremap <C-F6> :SyntasticReset<cr>
+" syntastic
+noremap <S-F6> :SyntasticCheck<cr>
+noremap <S-F7> :SyntasticReset<cr>
 
-nnoremap <leader>tl :set number! relativenumber! <bar> GitGutterToggle<cr>
+" line numbers
+nnoremap <leader>tlr :set relativenumber!<cr>
+nnoremap <leader>tln :set number!<cr>
+nnoremap <leader>tlg :GitGutterToggle<cr>
+
+" columns and current line hightlight
+nnoremap <leader>tcl :set cursorline!<cr>
+nnoremap <leader>tcc :let &cc = &cc == '' ? '81' : ''<cr>
+
+" folding toggle
+nnoremap <leader>tf :set foldenable!<cr>
+
+" capture shell command result
 nnoremap <leader>k :tabnew <bar> r !
 
+" session
+noremap <leader>sea :tabe ~/.vimrc.after<cr>
+noremap <leader>seb :tabe ~/.vimrc.before<cr>
+noremap <leader>srd :source ~/.vimrc.after<cr>
 exec 'nnoremap <leader>ss :mksession! ' . g:session_dir . '*.vim<C-D><BS><BS><BS><BS><BS>'
 exec 'nnoremap <leader>sr :source ' . g:session_dir . '*.vim<C-D><BS><BS><BS><BS><BS>'
 
