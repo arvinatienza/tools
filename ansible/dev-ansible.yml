@@ -27,6 +27,7 @@
        - mosh
        - nodejs
        - npm
+       - openvpn
        - packer
        - psmisc
        - rake

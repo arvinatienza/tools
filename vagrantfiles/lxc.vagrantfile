@@ -27,11 +27,11 @@ $requiredSoftwareScript = <<SCRIPT
         apt-get update
         apt-get install -y \
           ansible \
-          vim
+          aptitutde
         rm -rf /var/lib/apt/lists/*
         ps aux | grep 'sshd:' | awk '{print $2}' | xargs kill
 
-        snap install microk8s
+        snap install microk8s --classic
 
     } > /dev/null
     exit 0

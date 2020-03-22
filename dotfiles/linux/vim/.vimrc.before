@@ -32,33 +32,35 @@ let g:NERDTreeQuitOnOpen = 1
 "let g:airline_theme = 'base16_monokai'
 let g:airline_theme = 'material'
 
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
+"let g:airline_powerline_fonts = 1
+"if !exists('g:airline_symbols')
+    "let g:airline_symbols = {}
+"endif
 
 "let g:tmuxline_preset = {
       "\'win'  : '#I #W',
       "\'cwin' : '#I #W',
       "\'y'    : '#(date)',
-      "\'z'    : '#H'}
+      "\'z'    : '#H'
+"}
 
-"let g:tmuxline_preset = {
-      "\'a'    : '#S',
-      "\'b'    : '#W',
-      "\'c'    : '#H',
-      "\'win'  : '#I #W',
-      "\'cwin' : '#I #W',
-      "\'x'    : '%a',
-      "\'y'    : '#W %R',
-      "\'z'    : '#H'}
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'b'    : '#W',
+      \'c'    : '#H',
+      \'win'  : '#I #W',
+      \'cwin' : '#I #W',
+      \'x'    : '%a',
+      \'y'    : '#W %R',
+      \'z'    : '#H'
+}
 
-"let g:tmuxline_separators = {
-    "\ 'left' : '',
-    "\ 'left_alt': '>',
-    "\ 'right' : '',
-    "\ 'right_alt' : '<',
-    "\ 'space' : ' '}
+let g:tmuxline_separators = {
+    \ 'left' : '',
+    \ 'left_alt': '>',
+    \ 'right' : '',
+    \ 'right_alt' : '<',
+    \ 'space' : ' '}
 
 
 let g:vdebug_features = { 'max_children': 256 }
