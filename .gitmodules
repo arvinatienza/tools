@@ -43,3 +43,12 @@
 [submodule "dotfiles/linux/zsh/.zsh/base16-shell"]
 	path = dotfiles/linux/zsh/.zsh/base16-shell
 	url = https://github.com/chriskempson/base16-shell.git
+[submodule "dotfiles/linux/vim/.janus-available/typescript-vim"]
+	path = dotfiles/linux/vim/.janus-available/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
+[submodule "dotfiles/linux/vim/.janus-available/vim-twig"]
+	path = dotfiles/linux/vim/.janus-available/vim-twig
+	url = https://github.com/lumiliet/vim-twig
+[submodule "dotfiles/linux/vim/.janus-available/vim-liquid"]
+	path = dotfiles/linux/vim/.janus-available/vim-liquid
+	url = https://github.com/tpope/vim-liquid.git
