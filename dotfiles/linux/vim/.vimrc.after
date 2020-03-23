@@ -22,6 +22,10 @@ set expandtab
 "set statusline+=%=
 "set statusline+=[%l:%c]
 
+hi TabLineSel ctermfg=0 ctermbg=Yellow
+hi TabLineFill ctermfg=NONE ctermbg=Black
+hi TabLine ctermfg=DarkGray ctermbg=0
+
 "set background=dark
 "colorscheme material
 "colorscheme minimalist
@@ -31,12 +35,14 @@ set expandtab
 "set background=dark
 "colorscheme material-monokai
 "colorscheme material-theme
-""colorscheme hybrid_material
+"colorscheme hybrid_material
 "colorscheme material
 "hi Normal ctermbg=none
 "hi NonText ctermbg=none
 "hi LineNr ctermbg=none
 "hi ColorColumn ctermbg=52
+hi Normal guibg=Gray ctermbg=None
+
 "
 "set t_Co=256
 "syntax on

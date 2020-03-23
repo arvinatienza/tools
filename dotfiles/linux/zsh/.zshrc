@@ -4,11 +4,11 @@ export LANG=en_US.UTF-8
 export TERM=xterm-256color
 export EDITOR=vim
 
-ZSH_THEME="materialshell"
+#ZSH_THEME="materialshell"
 
 source ~/.zsh/zplug/init.zsh
 source ~/.zsh/aliases
-source ~/.zsh/functions
+#source ~/.zsh/functions
 
 
 zplug "zplug/zplug"
@@ -21,12 +21,14 @@ zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/docker", from:oh-my-zsh
 zplug "plugins/docker-compose", from:oh-my-zsh
 zplug "themes/robbyrussell", from:oh-my-zsh
-zplug "carloscuesta/materialshell", use:materialshell, from:github, as:theme
+#zplug "carloscuesta/materialshell", use:materialshell, from:github, as:theme
 
 zplug load #--verbose
 
 BASE16_SHELL=$HOME/.zsh/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+
+base16_material-darker
 
 #if command -v tmux &> /dev/null && [ -z "$TMUX" ];
   #then tmux attach -t default || tmux new -s default
