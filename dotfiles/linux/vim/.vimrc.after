@@ -7,6 +7,16 @@ endif
 "set colorcolumn=81
 "set cursorline
 
+"set nofoldenable
+highlight Folded ctermbg=black
+highlight Visual ctermbg=238
+
+" Git Diff
+highlight DiffAdd ctermbg=28 ctermfg=15
+highlight DiffDelete ctermbg=124 ctermfg=88
+highlight DiffChange ctermbg=166 ctermfg=15
+highlight DiffDiffer ctermbg=124 ctermfg=15
+
 "set tabstop=4
 "set shiftwidth=4
 "set softtabstop=4
@@ -51,34 +61,41 @@ hi Normal guibg=Gray ctermbg=None
 " window management
 noremap <TAB> <C-W>
 noremap <S-TAB> :tabnew<cr>
-noremap <TAB>rl 10<C-w>>
-noremap <TAB>rh 10<C-w><
-noremap <TAB>rk 10<C-w>-
-noremap <TAB>rj 10<C-w>+
+noremap <TAB>LL 10<C-w>>
+noremap <TAB>HH 10<C-w><
+noremap <TAB>KK 10<C-w>-
+noremap <TAB>JJ 10<C-w>+
 
 " syntastic
 noremap <S-F6> :SyntasticCheck<cr>
 noremap <S-F7> :SyntasticReset<cr>
 
-" line numbers
-nnoremap <leader>tlr :set relativenumber!<cr>
-nnoremap <leader>tln :set number!<cr>
-nnoremap <leader>tlg :GitGutterToggle<cr>
+" line numbers, columns and current line hightlight
+nnoremap <leader>lr :set relativenumber!<cr>
+nnoremap <leader>ln :set number!<cr>
+nnoremap <leader>lg :GitGutterToggle<cr>
+nnoremap <leader>lu :set cursorline!<cr>
+nnoremap <leader>lw :let &cc = &cc == '' ? '81' : ''<cr>
 
 " columns and current line hightlight
 nnoremap <leader>tcl :set cursorline!<cr>
 nnoremap <leader>tcc :let &cc = &cc == '' ? '81' : ''<cr>
 
 " folding toggle
-nnoremap <leader>tf :set foldenable!<cr>
+nnoremap <leader>fe :set foldenable!<cr>
+nnoremap <leader>fm :set foldmethod=manual<cr>
+nnoremap <leader>fi :set foldmethod=indent<cr>
 
 " capture shell command result
 nnoremap <leader>k :tabnew <bar> r !
+nnoremap <leader>kr ^v$y:tabnew <bar> r !<C-r>0
 
 " session
 noremap <leader>sea :tabe ~/.vimrc.after<cr>
 noremap <leader>seb :tabe ~/.vimrc.before<cr>
 noremap <leader>srd :source ~/.vimrc.after<cr>
+
+" config
 exec 'nnoremap <leader>ss :mksession! ' . g:session_dir . '*.vim<C-D><BS><BS><BS><BS><BS>'
 exec 'nnoremap <leader>sr :source ' . g:session_dir . '*.vim<C-D><BS><BS><BS><BS><BS>'
 
