@@ -19,6 +19,7 @@ zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/docker", from:oh-my-zsh
 zplug "plugins/docker-compose", from:oh-my-zsh
 zplug "themes/robbyrussell", from:oh-my-zsh
+#zplug "themes/maran", from:oh-my-zsh
 zplug "carloscuesta/materialshell", use:materialshell, from:github, as:theme
 
 zplug load #--verbose
@@ -28,6 +29,7 @@ fpath=(
     ~/.zfuncs/**/*~*/(CVS)#(/N)
     "${fpath[@]}"
 )
+autoload -U $fpath[1]/*(.:t)
 
 BASE16_SHELL=$HOME/.zsh/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"

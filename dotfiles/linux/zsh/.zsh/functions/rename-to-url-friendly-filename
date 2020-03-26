@@ -1,0 +1,4 @@
+function friendly-url-file-name() {
+  find . -name '* *' -type f | rename 's/ /_/g' && rename -f 'y/A-Z/a-z/' *"
+}
+

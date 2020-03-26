@@ -4,8 +4,6 @@ alias power-overwhelming='cat ~/.zsh/power-overwhelming-ascii.txt'
 # Utils
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -alh'
-alias rename-files-for-web="find . -name '* *' -type f | rename 's/ /_/g' && rename -f 'y/A-Z/a-z/' *"
-# TODO: add image resize
 # TODO: add csv to json
 # TODO: Add timestampp
 # TODO: script to replace html-entities (registers, trademarks, etc)
