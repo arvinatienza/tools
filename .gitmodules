@@ -1,51 +1,39 @@
-[submodule "dockerfiles/dev-base/janus"]
-	path = dockerfiles/dev-base/janus
-	url = https://github.com/carlhuda/janus.git
-[submodule "dockerfiles/dev-base/vim-plugins/vim-terraform"]
-	path = dockerfiles/dev-base/vim-plugins/vim-terraform
-	url = https://github.com/hashivim/vim-terraform
-	branch = master
-[submodule "dockerfiles/dev-base/vim-plugins/typescript-vim"]
-	path = dockerfiles/dev-base/vim-plugins/typescript-vim
-	url = https://github.com/leafgarland/typescript-vim.git
-	branch = master
-[submodule "dockerfiles/dev-base/vim-plugins/vim-twig"]
-	path = dockerfiles/dev-base/vim-plugins/vim-twig
-	url = https://github.com/lumiliet/vim-twig
-	branch = master
-[submodule "dockerfiles/dev-base/vim-plugins/emmet-vim"]
-	path = dockerfiles/dev-base/vim-plugins/emmet-vim
-	url = https://github.com/mattn/emmet-vim.git
-	branch = master
-[submodule "dockerfiles/dev-base/vim-plugins/vim-liquid"]
-	path = dockerfiles/dev-base/vim-plugins/vim-liquid
-	url = https://github.com/tpope/vim-liquid.git
-	branch = master
-[submodule "dockerfiles/dev-base/vim-plugins/vim-bootstrap3-snippets"]
-	path = dockerfiles/dev-base/vim-plugins/vim-bootstrap3-snippets
-	url = https://github.com/chrisgillis/vim-bootstrap3-snippets.git
-	branch = master
-[submodule "dotfiles/linux/vim/.janus/vim-airline"]
-	path = dotfiles/linux/vim/.janus/vim-airline
+[submodule "dotfiles/linux/vim/.janus-available/vim-airline"]
+	path = dotfiles/linux/vim/.janus-available/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
-[submodule "dotfiles/linux/vim/.janus/vim-airline-themes"]
-	path = dotfiles/linux/vim/.janus/vim-airline-themes
+[submodule "dotfiles/linux/vim/.janus-available/vim-airline-themes"]
+	path = dotfiles/linux/vim/.janus-available/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
-[submodule "dotfiles/linux/vim/.janus/emmet-vim"]
-	path = dotfiles/linux/vim/.janus/emmet-vim
+[submodule "dotfiles/linux/vim/.janus-available/emmet-vim"]
+	path = dotfiles/linux/vim/.janus-available/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
-[submodule "dotfiles/linux/vim/.janus/base16-vim"]
-	path = dotfiles/linux/vim/.janus/base16-vim
+[submodule "dotfiles/linux/vim/.janus-available/base16-vim"]
+	path = dotfiles/linux/vim/.janus-available/base16-vim
 	url = https://github.com/chriskempson/base16-vim
-[submodule "dotfiles/linux/vim/.janus/material.vim"]
-	path = dotfiles/linux/vim/.janus/material.vim
+[submodule "dotfiles/linux/vim/.janus-available/material.vim"]
+	path = dotfiles/linux/vim/.janus-available/material.vim
 	url = https://github.com/kaicataldo/material.vim.git
-[submodule "dotfiles/linux/vim/.janus/vim-terraform"]
-	path = dotfiles/linux/vim/.janus/vim-terraform
+[submodule "dotfiles/linux/vim/.janus-available/vim-terraform"]
+	path = dotfiles/linux/vim/.janus-available/vim-terraform
 	url = https://github.com/hashivim/vim-terraform
-[submodule "dotfiles/linux/vim/.janus-disabled/tmuxline.vim"]
-	path = dotfiles/linux/vim/.janus-disabled/tmuxline.vim
+[submodule "dotfiles/linux/vim/.janus-available/tmuxline.vim"]
+	path = dotfiles/linux/vim/.janus-available/tmuxline.vim
 	url = https://github.com/edkolev/tmuxline.vim.git
+[submodule "dotfiles/linux/vim/.janus-available/vdebug"]
+	path = dotfiles/linux/vim/.janus-available/vdebug
+	url = https://github.com/vim-vdebug/vdebug.git
+[submodule "dotfiles/linux/vim/.janus-available/vim-snippets"]
+	path = dotfiles/linux/vim/.janus-available/vim-snippets
+	url = https://github.com/honza/vim-snippets.git
+[submodule "dotfiles/linux/vim/.janus-available/vim-gdscript3"]
+	path = dotfiles/linux/vim/.janus-available/vim-gdscript3
+	url = https://github.com/calviken/vim-gdscript3.git
+[submodule "dotfiles/linux/vim/.janus-available/vim-dadbod"]
+	path = dotfiles/linux/vim/.janus-available/vim-dadbod
+	url = https://github.com/tpope/vim-dadbod.git
+[submodule "dotfiles/linux/vim/.janus-available/tabular"]
+	path = dotfiles/linux/vim/.janus-available/tabular
+	url = https://github.com/godlygeek/tabular.git
 [submodule "dotfiles/linux/vim/.vim"]
 	path = dotfiles/linux/vim/.vim
 	url = https://github.com/carlhuda/janus.git
@@ -55,6 +43,12 @@
 [submodule "dotfiles/linux/zsh/.zsh/base16-shell"]
 	path = dotfiles/linux/zsh/.zsh/base16-shell
 	url = https://github.com/chriskempson/base16-shell.git
-[submodule "dotfiles/linux/vim/.janus/vdebug"]
-	path = dotfiles/linux/vim/.janus/vdebug
-	url = https://github.com/vim-vdebug/vdebug.git
+[submodule "dotfiles/linux/vim/.janus-available/typescript-vim"]
+	path = dotfiles/linux/vim/.janus-available/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
+[submodule "dotfiles/linux/vim/.janus-available/vim-twig"]
+	path = dotfiles/linux/vim/.janus-available/vim-twig
+	url = https://github.com/lumiliet/vim-twig
+[submodule "dotfiles/linux/vim/.janus-available/vim-liquid"]
+	path = dotfiles/linux/vim/.janus-available/vim-liquid
+	url = https://github.com/tpope/vim-liquid.git

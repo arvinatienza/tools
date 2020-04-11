@@ -1,10 +1,39 @@
-# TODO: add image resize
+# Personal
+alias power-overwhelming='cat ~/.zsh/power-overwhelming-ascii.txt'
+
+# Utils
+alias ls='ls --color=auto'
+alias ll='ls --color=auto -alh'
 # TODO: add csv to json
 # TODO: Add timestampp
 # TODO: script to replace html-entities (registers, trademarks, etc)
-#alias docker-ips='sudo docker inspect --format "{{.Name}} - {{range .NetworkSettings.Networks }}{{.IPAddress}}{{end}}" $(docker ps -aq)'
-alias power-overwhelming='cat ~/.zsh/power-overwhelming-ascii.txt'
-alias rename-files-for-web="find . -name '* *' -type f | rename 's/ /_/g' && rename -f 'y/A-Z/a-z/' *"
-alias clean-git-branches='git branch --merged | egrep -v "(^\*|master|develop)" | xargs git branch -d'
+#alias mountArvinHD='sudo cryptsetup luksOpen /dev/${ARVIN_PORTABLE_PARTITION} arvin-portable && sudo mount /dev/mapper/arvin-portable /mnt/arv>
+#alias umountArvinHD='sudo umount /mnt/arvin-portable && sudo cryptsetup luksClose arvin-portable'
+#alias cdArvinHome='cd /mnt/arvin-portable/home/arvin'
+#alias backupToArvinHD='rsync -anv --delete /home/vagrant/projects/ /mnt/arvin-portable/home/arvin/Documents/Work/mka/projects/'
+#alias backupToArvinHDGo='rsync -av --delete /home/vagrant/projects/ /mnt/arvin-portable/home/arvin/Documents/Work/mka/projects/'
+#alias restoreFromArvinHD='rsync -anv --delete /mnt/arvin-portable/home/arvin/Documents/Work/mka/projects/ /home/vagrant/projects/ '
+#alias restoreFromArvinHDGo='rsync -av --delete /mnt/arvin-portable/home/arvin/Documents/Work/mka/projects/ /home/vagrant/projects/ '
+
+# Tmux
 alias tmux="tmux -u -2"
 alias mux="tmuxinator"
+
+# Ssh
+alias ssh-agent-login='eval $(ssh-agent -s); ssh-add ~/.ssh/id_rsa'
+
+# Git
+alias git-diff-no-space="git diff --ignore-space-at-eol --ignore-space-change --ignore-all-space --ignore-cr-at-eol"
+alias git-clean-branches='git branch --merged | egrep -v "(^\*|master|develop)" | xargs git branch -d'
+
+# Kubernetes
+alias kubectl="microk8s.kubectl"
+alias helm="microk8s.helm"
+
+# LXC
+#alias lxcStartPersonal='lxc start arvin || true && lxc exec arvin -- su --login ubuntu'
+
+# MKA specific
+alias mka-refresh-intranet-database='docker-compose down && docker volume rm mkaintranet_mysql_data && docker-compose up -d'
+alias mka-git-checkout-last='git checkout $GIT_PREVIOUS_CHECKOUT_BRANCH'
+alias mka-git-checkout-test='GIT_PREVIOUS_CHECKOUT_BRANCH=$(git symbolic-ref --short -q HEAD); git checkout testing-server/aatienza'

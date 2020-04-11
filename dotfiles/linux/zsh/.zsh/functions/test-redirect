@@ -1,0 +1,17 @@
+function test-redirects() {
+
+    RED='\033[0;31m'
+    GREEN='\033[0;32m'
+    NC='\033[0m' # No Color
+
+    SRC=$1
+    DEST=$2
+
+    RESULT=$(curl $1 -s -L -o /dev/null -w '%{url_effective}')
+
+    if [ "$RESULT" = "$DEST" ]; then
+        echo "${GREEN}[Success] ${NC}$SRC => $DEST"
+    else
+        echo "${RED}[Failed] $SRC => ${NC}$DEST - ${RED}Actual: $NEW_LOCATION"
+    fi;
+}
