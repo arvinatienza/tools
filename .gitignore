@@ -3,6 +3,7 @@
 .swo
 
 dotfiles/linux/vim/.vim
+dotfiles/linux/vim/.janus
 
 
 # DO NOT IGNORE

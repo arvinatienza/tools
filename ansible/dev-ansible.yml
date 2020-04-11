@@ -13,7 +13,6 @@
      with_items:
        - ack
        - curl
-       - awscli
        - docker.io
        - docker-compose
        - git
@@ -27,7 +26,9 @@
        - mosh
        - nodejs
        - npm
+       - openvpn
        - packer
+       - python-pip
        - psmisc
        - rake
        - rename
@@ -46,6 +47,12 @@
      become: yes
      become_user: root
 
+   - name: Install Keybase
+     shell: |
+       curl -O https://prerelease.keybase.io/keybase_amd64.deb && dpkg -i keybase_amd64.deb
+     become: yes
+     become_user: root
+
    - name: Install Terraform
      shell: |
        wget "https://releases.hashicorp.com/terraform/0.12.5/terraform_0.12.5_linux_amd64.zip" -O /tmp/terraform.zip
@@ -55,38 +62,24 @@
      become: yes
      become_user: root
 
+   #- name: Install GCloud
+     #shell: |
+       #export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" \
+       #&& echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list \
+       #&& curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - \
+       #&& apt-get update && apt-get install -yq \
+          #google-cloud-sdk \
+          #kubectl
+     #become: yes
+     #become_user: root
+
+   #- name: Install AWS
+     #shell: |
+       #pip install awscli
+     #become: yes
+     #become_user: root
+
      #- name: Get customization
      #git:
      #repo: https://github.com/arvinatienza/tools
      #dest: /home/ubuntu/.tools
-
-     #- name: Configure Nginx
-     #lineinfile:
-     #dest: /etc/nginx/sites-enabled/default
-     #regexp: "{{ item.regexp }}"
-     #line: "{{ item.line }}"
-     #state: present
-     #with_items:
-     #- { regexp: 'root /var/www/html', line: 'root /var/www/html/front-desk-display;' }
-     #become: yes
-     #become_user: root
-
-     #- name: Copy latest app
-     #copy:
-     #src: ../files/pi-signage/var/www/html/front-desk-display
-     #dest: /var/www/html
-     #owner: www-data
-     #group: www-data
-     #mode: 0755
-     #become: yes
-     #become_user: root
-
-     #- name: Restart server
-     #command: /sbin/reboot
-     #become: yes
-     #become_user: root
-
-     #- name: Wait for the server to finish rebooting
-     #local_action: wait_for host="{{ inventory_hostname }}" search_regex=OpenSSH port=22 timeout=700
-     #become: yes
-     #become_user: root
