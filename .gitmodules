@@ -52,3 +52,6 @@
 [submodule "dotfiles/linux/vim/.janus-available/vim-liquid"]
 	path = dotfiles/linux/vim/.janus-available/vim-liquid
 	url = https://github.com/tpope/vim-liquid.git
+[submodule "dotfiles/linux/vim/.janus-available/vimwiki"]
+	path = dotfiles/linux/vim/.janus-available/vimwiki
+	url = https://github.com/vimwiki/vimwiki.git
