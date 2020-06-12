@@ -53,10 +53,12 @@ hi TabLine ctermfg=DarkGray ctermbg=0
 "hi ColorColumn ctermbg=52
 hi Normal guibg=Gray ctermbg=None
 
-"
-"set t_Co=256
-"syntax on
-"colorscheme minimalist
+" Shortcuts
+nnoremap <CR> :w<cr>
+nnoremap <SPACE> viw
+vnoremap <SPACE> <ESC>wviw
+nnoremap <BS> bbviw
+vnoremap <BS> <ESC>bbviw
 
 " window management
 noremap <TAB> <C-W>
