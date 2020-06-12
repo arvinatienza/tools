@@ -63,6 +63,7 @@ vnoremap <BS> <ESC>bbviw
 " window management
 noremap <TAB> <C-W>
 noremap <S-TAB> :tabnew<cr>
+noremap <S-CR> :new<cr>
 noremap <TAB>LL 10<C-w>>
 noremap <TAB>HH 10<C-w><
 noremap <TAB>KK 10<C-w>-
