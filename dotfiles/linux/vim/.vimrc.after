@@ -59,6 +59,7 @@ nnoremap <SPACE> viw
 vnoremap <SPACE> <ESC>wviw
 nnoremap <BS> bbviw
 vnoremap <BS> <ESC>bbviw
+inoremap jk <ESC>
 
 " window management
 noremap <TAB> <C-W>
