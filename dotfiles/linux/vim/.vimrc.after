@@ -3,55 +3,25 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
-"set relativenumber
-"set colorcolumn=81
-"set cursorline
-
-"set nofoldenable
-highlight Folded ctermbg=black
-highlight Visual ctermbg=238
-
 " Git Diff
-highlight DiffAdd ctermbg=28 ctermfg=15
-highlight DiffDelete ctermbg=124 ctermfg=88
-highlight DiffChange ctermbg=166 ctermfg=15
-highlight DiffDiffer ctermbg=124 ctermfg=15
+hi DiffAdd ctermbg=28 ctermfg=15
+hi DiffDelete ctermbg=124 ctermfg=88
+hi DiffChange ctermbg=166 ctermfg=15
+hi DiffDiffer ctermbg=124 ctermfg=15
 
-"set tabstop=4
-"set shiftwidth=4
-"set softtabstop=4
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-
-"set statusline=%f
-"set statusline+=\ %{fugitive#statusline()}
-"set statusline+=\ %{SyntasticStatuslineFlag()}
-"set statusline+=\ %#warningmsg#
-"set statusline+=%=
-"set statusline+=[%l:%c]
-
+" Tab
 hi TabLineSel ctermfg=0 ctermbg=Yellow
 hi TabLineFill ctermfg=NONE ctermbg=Black
 hi TabLine ctermfg=DarkGray ctermbg=0
 
-"set background=dark
-"colorscheme material
-"colorscheme minimalist
-"set termguicolors
-"colorscheme vim-material
-
-"set background=dark
-"colorscheme material-monokai
-"colorscheme material-theme
-"colorscheme hybrid_material
-"colorscheme material
-"hi Normal ctermbg=none
-"hi NonText ctermbg=none
-"hi LineNr ctermbg=none
-"hi ColorColumn ctermbg=52
 hi Normal guibg=Gray ctermbg=None
+hi Folded ctermbg=black
+hi Visual ctermbg=238
+
+set showtabline=2
+set relativenumber
+set nofoldenable
+"set colorcolumn=81
 
 " Shortcuts
 nnoremap <CR> :w<cr>
@@ -64,7 +34,6 @@ inoremap jk <ESC>
 " window management
 noremap <TAB> <C-W>
 noremap <S-TAB> :tabnew<cr>
-noremap <S-CR> :new<cr>
 noremap <TAB>LL 10<C-w>>
 noremap <TAB>HH 10<C-w><
 noremap <TAB>KK 10<C-w>-

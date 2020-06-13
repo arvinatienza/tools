@@ -3,6 +3,7 @@ let mapleader = ","
 let g:session_dir = $HOME . '/.vim-sessions/'
 
 let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeShowHidden=1
 
 " Syntastic configuration
 "let g:syntastic_always_populate_loc_list = 1
@@ -70,5 +71,8 @@ let g:vdebug_options["break_on_open"] = 0
 let g:vdebug_options["path_maps"] = { '/var/www/html': getcwd() }
 "let g:vdebug_options["port"] = 9000
 
+let g:tmux_navigator_save_on_switch = 2
+
 call janus#disable_plugin('gundo')
+call janus#disable_plugin('vroom')
 
