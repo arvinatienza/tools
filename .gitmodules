@@ -55,3 +55,6 @@
 [submodule "dotfiles/linux/tmux/.tmux/plugins/tpm"]
 	path = dotfiles/linux/tmux/.tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "dotfiles/linux/vim/.janus-available/vim-tmux-navigator"]
+	path = dotfiles/linux/vim/.janus-available/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator.git
