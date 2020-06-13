@@ -4,27 +4,28 @@ if filereadable(expand("~/.vimrc_background"))
 endif
 
 " Git Diff
-hi DiffAdd ctermbg=28 ctermfg=15
-hi DiffDelete ctermbg=124 ctermfg=88
-hi DiffChange ctermbg=166 ctermfg=15
-hi DiffDiffer ctermbg=124 ctermfg=15
+highlight DiffAdd ctermbg=28 ctermfg=15
+highlight DiffDelete ctermbg=124 ctermfg=88
+highlight DiffChange ctermbg=166 ctermfg=15
+highlight DiffDiffer ctermbg=124 ctermfg=15
 
 " Tab
-hi TabLineSel ctermfg=0 ctermbg=Yellow
-hi TabLineFill ctermfg=NONE ctermbg=Black
-hi TabLine ctermfg=DarkGray ctermbg=0
+highlight TabLineSel ctermfg=0 ctermbg=Yellow
+highlight TabLineFill ctermfg=NONE ctermbg=Black
+highlight TabLine ctermfg=DarkGray ctermbg=0
 
-hi Normal guibg=Gray ctermbg=None
-hi Folded ctermbg=black
-hi Visual ctermbg=238
+highlight Normal guibg=Gray ctermbg=None
+highlight Folded ctermbg=black
+highlight Visual ctermbg=238
 
 set showtabline=2
 set relativenumber
 set nofoldenable
-"set colorcolumn=81
+set colorcolumn=81
 
 " Shortcuts
 nnoremap <CR> :w<cr>
+nnoremap <CR><CR> :w<cr>:bd<cr>
 nnoremap <SPACE> viw
 vnoremap <SPACE> <ESC>wviw
 nnoremap <BS> bbviw
@@ -34,10 +35,10 @@ inoremap jk <ESC>
 " window management
 noremap <TAB> <C-W>
 noremap <S-TAB> :tabnew<cr>
-noremap <TAB>LL 10<C-w>>
-noremap <TAB>HH 10<C-w><
-noremap <TAB>KK 10<C-w>-
-noremap <TAB>JJ 10<C-w>+
+noremap <TAB>l 10<C-w>>
+noremap <TAB>h 10<C-w><
+noremap <TAB>k 10<C-w>-
+noremap <TAB>j 10<C-w>+
 
 " syntastic
 noremap <S-F6> :SyntasticCheck<cr>
@@ -50,10 +51,6 @@ nnoremap <leader>lg :GitGutterToggle<cr>
 nnoremap <leader>lu :set cursorline!<cr>
 nnoremap <leader>lw :let &cc = &cc == '' ? '81' : ''<cr>
 
-" columns and current line hightlight
-nnoremap <leader>tcl :set cursorline!<cr>
-nnoremap <leader>tcc :let &cc = &cc == '' ? '81' : ''<cr>
-
 " folding toggle
 nnoremap <leader>fe :set foldenable!<cr>
 nnoremap <leader>fm :set foldmethod=manual<cr>
@@ -61,7 +58,7 @@ nnoremap <leader>fi :set foldmethod=indent<cr>
 
 " capture shell command result
 nnoremap <leader>k :tabnew <bar> r !
-nnoremap <leader>kr ^v$y:tabnew <bar> r !<C-r>0
+nnoremap <leader>kk ^v$y:tabnew <bar> r !<C-r>0
 
 " session
 noremap <leader>sea :tabe ~/.vimrc.after<cr>
