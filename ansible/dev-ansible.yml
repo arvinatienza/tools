@@ -15,6 +15,7 @@
        - curl
        - docker.io
        - docker-compose
+       - exuberant-ctags
        - git
        - git-flow
        - gnupg2
