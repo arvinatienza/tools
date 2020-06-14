@@ -27,12 +27,12 @@
        - mysql-client
        - openvpn
        - packer
-       - php
        - python-pip
        - psmisc
        - rake
        - rename
        - ruby
+       - sqlite
        - stow
        - tar
        - tidy
