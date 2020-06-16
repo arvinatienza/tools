@@ -35,37 +35,52 @@ inoremap jk <ESC>
 " window management
 noremap <TAB> <C-W>
 noremap <S-TAB> :tabnew<cr>
-noremap <TAB>l 10<C-w>>
-noremap <TAB>h 10<C-w><
-noremap <TAB>k 10<C-w>-
-noremap <TAB>j 10<C-w>+
+noremap <TAB>L 10<C-w>>
+noremap <TAB>H 10<C-w><
+noremap <TAB>K 10<C-w>-
+noremap <TAB>J 10<C-w>+
 
 " syntastic
-noremap <S-F6> :SyntasticCheck<cr>
-noremap <S-F7> :SyntasticReset<cr>
+nnoremap <S-F6> :SyntasticCheck<cr>
+nnoremap <S-F7> :SyntasticReset<cr>
 
-" line numbers, columns and current line hightlight
+" toggles
+nnoremap <silent> <leader>ts
+             \ : if exists("syntax_on") <BAR>
+             \    syntax off <BAR>
+             \ else <BAR>
+             \    syntax enable <BAR>
+             \ endif<CR>
+
+" toggle lines
 nnoremap <leader>lr :set relativenumber!<cr>
 nnoremap <leader>ln :set number!<cr>
 nnoremap <leader>lg :GitGutterToggle<cr>
 nnoremap <leader>lu :set cursorline!<cr>
 nnoremap <leader>lw :let &cc = &cc == '' ? '81' : ''<cr>
 
-" folding toggle
-nnoremap <leader>fe :set foldenable!<cr>
-nnoremap <leader>fm :set foldmethod=manual<cr>
-nnoremap <leader>fi :set foldmethod=indent<cr>
+" toggle fold
+nnoremap <leader>zfe :set foldenable!<cr>
+nnoremap <leader>zfm :set foldmethod=manual<cr>
+nnoremap <leader>zfi :set foldmethod=indent<cr>
 
-" capture shell command result
+" file specifics
+"augroup filetype_php
+    "autocmd!
+    "autocmd FileType php nnoremap <buffer> <localleader>f Vatzf
+"augroup END
+
+
+" shell
 nnoremap <leader>k :tabnew <bar> r !
-nnoremap <leader>kk ^v$y:tabnew <bar> r !<C-r>0
-
-" session
-noremap <leader>sea :tabe ~/.vimrc.after<cr>
-noremap <leader>seb :tabe ~/.vimrc.before<cr>
-noremap <leader>srd :source ~/.vimrc.after<cr>
+nnoremap <leader>kk ^vg_y:tabnew <bar> r !<C-r>0
 
 " config
+noremap <leader>sea :tabe ~/.vimrc.after<cr>
+noremap <leader>seb :tabe ~/.vimrc.before<cr>
+noremap <leader>soa :source ~/.vimrc.after<cr>
+
+" session
 exec 'nnoremap <leader>ss :mksession! ' . g:session_dir . '*.vim<C-D><BS><BS><BS><BS><BS>'
 exec 'nnoremap <leader>sr :source ' . g:session_dir . '*.vim<C-D><BS><BS><BS><BS><BS>'
 
