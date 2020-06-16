@@ -2,6 +2,9 @@
 .swp
 .swo
 
+tmux-client-*.log
+tmux-server-*.log
+
 dotfiles/linux/vim/.vim
 dotfiles/linux/vim/.janus
 
