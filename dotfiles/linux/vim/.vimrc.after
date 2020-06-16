@@ -23,6 +23,10 @@ set relativenumber
 set nofoldenable
 set colorcolumn=81
 
+syntax sync minlines=100
+syntax sync maxlines=240
+set synmaxcol=800
+
 " Shortcuts
 nnoremap <CR> :w<cr>
 nnoremap <CR><CR> :w<cr>:bd<cr>
