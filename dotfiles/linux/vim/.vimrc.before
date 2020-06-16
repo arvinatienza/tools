@@ -14,17 +14,15 @@ let g:NERDTreeShowHidden=1
 " Syntastic configuration for PHP
 "let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 "let g:syntastic_php_phpcs_exec = './bin/phpcs'
-"let g:syntastic_php_phpcs_args = '--standard=psr4'
+"let g:syntastic_php_phpcs_args = '--standard=psr2'
 "let g:syntastic_php_phpmd_exec = './bin/phpmd'
 "let g:syntastic_php_phpmd_post_args = 'cleancode,codesize,controversial,design,unusedcode'
 
 " Syntastic configuration for Javascript
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
 "let g:syntastic_javascript_checkers=["jslint", "eslint"]
 "let g:syntastic_javascript_eslint_exe = 'npm run lint --'
+
+" Syntastic configuration for SCSS
 "let g:syntastic_sass_checkers=["sasslint"]
 "let g:syntastic_scss_checkers=["sasslint"]
 
@@ -69,7 +67,7 @@ let g:vdebug_features = { 'max_children': 256 }
 let g:vdebug_options = {}
 let g:vdebug_options["break_on_open"] = 0
 let g:vdebug_options["path_maps"] = { '/var/www/html': getcwd() }
-"let g:vdebug_options["port"] = 9000
+let g:vdebug_options["port"] = 9000
 
 let g:tmux_navigator_save_on_switch = 2
 

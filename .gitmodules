@@ -58,3 +58,6 @@
 [submodule "dotfiles/linux/vim/.janus-available/vim-tmux-navigator"]
 	path = dotfiles/linux/vim/.janus-available/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator.git
+[submodule "dotfiles/linux/vim/.janus-available/vim-dotenv"]
+	path = dotfiles/linux/vim/.janus-available/vim-dotenv
+	url = https://github.com/tpope/vim-dotenv.git
