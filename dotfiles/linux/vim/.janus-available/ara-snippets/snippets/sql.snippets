@@ -1,0 +1,19 @@
+snippet ctbl
+	CREATE TABLE `${1}` (
+			`ID` INT NOT NULL AUTO_INCREMENT,
+			`${2}` VARCHAR(50) NULL,
+			PRIMARY KEY (`ID`)
+	);
+
+snippet insto
+	INSERT INTO `${1}`
+	${2}
+
+snippet sel
+	SELECT
+		${2}
+	FROM
+		${3}
+	WHERE
+		${4}
+	;
