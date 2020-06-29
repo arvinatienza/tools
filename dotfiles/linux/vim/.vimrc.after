@@ -28,13 +28,12 @@ syntax sync maxlines=240
 set synmaxcol=800
 
 " Shortcuts
-nnoremap <CR> :w<cr>
-nnoremap <CR><CR> :w<cr>:bd<cr>
 nnoremap <SPACE> viw
 vnoremap <SPACE> <ESC>wviw
 nnoremap <BS> bbviw
 vnoremap <BS> <ESC>bbviw
 inoremap jk <ESC>
+
 
 " window management
 noremap <TAB> <C-W>

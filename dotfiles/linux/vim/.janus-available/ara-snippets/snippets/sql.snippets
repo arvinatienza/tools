@@ -1,0 +1,23 @@
+snippet ctbl
+	CREATE TABLE \`${1}\` (
+			`ID` INT NOT NULL AUTO_INCREMENT,
+			\`${2}\` VARCHAR(50) NULL,
+			${3}
+			PRIMARY KEY (`ID`)
+	);
+snippet insto
+	INSERT INTO \`${1}\`
+	${2}
+snippet ss
+	SELECT
+		${1}
+	FROM
+	WHERE
+	ORDER BY
+	HAVING
+	LIMIT
+	;
+snippet kv
+	\`${1}\` = "${2}"${3}
+snippet cas
+	\`${1}\` as \`${2}\`${3}
