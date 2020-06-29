@@ -8,6 +8,8 @@ tmux-server-*.log
 dotfiles/linux/vim/.vim
 dotfiles/linux/vim/.janus
 
+dotfiles/linux/tmux/.tmux/plugins
+
 
 # DO NOT IGNORE
 !.keep
