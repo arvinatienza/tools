@@ -11,43 +11,44 @@
 #
 # Create a .env file similar to below
 # VM_NAME="dev"
-# VM_SSH_HOST_PORT="2950"
+# VM_IP='10.10.10.1'
+# VM_SSH_HOST_PORT="2900"
 # VM_CPUS="2"
 # VM_MEMORY="4096"
-# VM_DISKSIZE="75GB"
+# VM_DISKSIZE="150GB"
 # VM_GUI="true"
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
-DISK_DEFAULT = './data-default.vdi'
+disks = [
+  { :port => '1', :file => './data-default.vdi' }
+]
 
-$requiredSoftwareScript = <<SCRIPT
-    echo "Installing required programs..."
+$cleanup = <<SCRIPT
+    echo "Cleaning up..."
     {
-        apt-get update
-        apt-get install -y \
-          ansible \
-          aptitutde
         rm -rf /var/lib/apt/lists/*
         ps aux | grep 'sshd:' | awk '{print $2}' | xargs kill
-
-        #snap install microk8s --classic
-
     } > /dev/null
     exit 0
 SCRIPT
 
+unless Vagrant.has_plugin?("vagrant-disksize")
+  raise 'vagrant-disksize is not installed!'
+end
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.env.enable
 
-  config.vm.box = "arvin/dev"
+  config.vm.box = "hashicorp/bionic64"
   config.vm.hostname = ENV['VM_NAME']
+  config.vm.network "private_network", ip: ENV['VM_IP']
   config.vm.network "forwarded_port", guest: 22, host: ENV['VM_SSH_HOST_PORT']
 
-  config.disksize.size = ENV['VM_DISKSIZE'] || "50GB"
+  config.disksize.size = ENV['VM_DISKSIZE'] || "150GB"
   config.vbguest.auto_update = true
+  config.vm.synced_folder ".","/vagrant", disabled: true
 
   config.vm.provider "virtualbox" do |vb|
     vb.name = ENV['VM_NAME']
@@ -55,12 +56,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.cpus = ENV['VM_CPUS'] || 1
     vb.memory = ENV['VM_MEMORY'] || 1024
 
-    unless File.exist?(DISK_DEFAULT)
-      vb.customize ['createhd', '--filename', DISK_DEFAULT, '--variant', 'Standard', '--size', 50 * 1024]
-      vb.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', DISK_DEFAULT]
+    disks.each do |disk|
+      unless File.exist?(disk[:file])
+        vb.customize ['createhd', '--filename', disk[:file], '--variant', 'Standard', '--size', 50 * 1024]
+        vb.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', disk[:port], '--device', 0, '--type', 'hdd', '--medium', disk[:file]]
+      end
     end
-
   end
 
-  config.vm.provision "shell", inline: $requiredSoftwareScript
+  config.vm.provision "shell", path: "disk-extend.sh"
+  config.vm.provision "shell", path: "install-required-software.sh"
+  config.vm.provision "shell", inline: $cleanup
 end
