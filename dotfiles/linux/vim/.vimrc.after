@@ -23,20 +23,33 @@ set relativenumber
 set nofoldenable
 set colorcolumn=81
 
+"set redrawtime=10000
 syntax sync minlines=100
 syntax sync maxlines=240
+"syntax sync fromstart
 set synmaxcol=800
 
 " Shortcuts
+nnoremap <F1> :let @1 = expand("%:p") <bar> let @2 = expand("%:t") <bar> let @3 = expand("%") <CR>
 nnoremap <SPACE> viw
 vnoremap <SPACE> <ESC>wviw
 nnoremap <BS> bbviw
 vnoremap <BS> <ESC>bbviw
 inoremap jk <ESC>
 
+" Easy button
+nnoremap <C-F11> :wall <bar> !git add . && git commit -m 'WIP...' <CR>
+nnoremap <C-F12> :wall <bar> !git add . && git commit -m 'WIP...' && git push && cat ~/.zsh/power-overwhelming-ascii.txt<CR>
+
+" Git
+nnoremap <leader>gdD :tabnew <bar> r !git diff develop...HEAD --name-only
+nnoremap <leader>glg :tabnew <bar> r !git log --all --decorate --graph --oneline<SPACE>
+nnoremap <leader>glgp :tabnew <bar> r !git log --all --decorate --graph --stat -p<SPACE>
+nnoremap <leader>gt :-1read ~/.gitmessage
 
 " window management
 noremap <TAB> <C-W>
+noremap <TAB>C :bd!<cr>
 noremap <S-TAB> :tabnew<cr>
 noremap <TAB>L 10<C-w>>
 noremap <TAB>H 10<C-w><
