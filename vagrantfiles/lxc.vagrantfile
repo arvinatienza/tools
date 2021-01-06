@@ -22,16 +22,40 @@
 VAGRANTFILE_API_VERSION = "2"
 
 disks = [
-  { :port => '1', :file => './data-default.vdi' }
+  { :port => '1', :file => './data-default.vdi' },
+  { :port => '2', :file => './data-backups.vdi' }
 ]
 
-$cleanup = <<SCRIPT
-    echo "Cleaning up..."
-    {
-        rm -rf /var/lib/apt/lists/*
-        ps aux | grep 'sshd:' | awk '{print $2}' | xargs kill
-    } > /dev/null
-    exit 0
+$requiredSoftware = <<SCRIPT
+  echo "Installing required programs..."
+  {
+    apt-get update
+    apt-get install -y \
+      curl \
+      git \
+      git-flow \
+      gnupg2 \
+      groff \
+      gzip \
+      jg \
+      mc \
+      samba \
+      tar \
+      vim \
+      wget \
+      zip
+    apt-get clean
+    rm -rf /var/lib/apt/lists/*
+    ps aux | grep 'sshd:' | awk '{print $2}' | xargs kill
+
+    snap install lxd
+
+    #TODO
+    # init lxd
+    # add vagrant to lxd group
+    # add samba settings
+    # add samba vagrant user
+  }
 SCRIPT
 
 unless Vagrant.has_plugin?("vagrant-disksize")
@@ -58,13 +82,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     disks.each do |disk|
       unless File.exist?(disk[:file])
-        vb.customize ['createhd', '--filename', disk[:file], '--variant', 'Standard', '--size', 50 * 1024]
+        vb.customize ['createhd', '--filename', disk[:file], '--variant', 'Standard', '--size', 100 * 1024]
         vb.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', disk[:port], '--device', 0, '--type', 'hdd', '--medium', disk[:file]]
       end
     end
   end
 
-  config.vm.provision "shell", path: "disk-extend.sh"
-  config.vm.provision "shell", path: "install-required-software.sh"
-  config.vm.provision "shell", inline: $cleanup
+  config.vm.provision "shell", inline: $requiredSoftware
 end
