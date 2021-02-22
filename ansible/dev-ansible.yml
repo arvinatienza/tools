@@ -52,3 +52,13 @@
        apt install -y gh
      become: yes
      become_user: root
+
+   - name: Install Todo.txt
+     shell: |
+       wget https://github.com/todotxt/todo.txt-cli/releases/download/v2.12.0/todo.txt_cli-2.12.0.tar.gz
+       tar -xvzf todo.txt*.gz
+       mv todo.txt*/todo.sh /usr/bin/todo
+       mv todo.txt*/todo_completion /etc/bash_completion.d/todo
+       mv todo.txt*/todo.cfg /var/local/todo.cfg
+     become: yes
+     become_user: root
