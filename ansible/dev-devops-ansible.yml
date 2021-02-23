@@ -1,0 +1,106 @@
+- hosts: localhost
+  tasks:
+
+   - name: Update and upgrade apt packages
+     apt:
+       upgrade: yes
+       update_cache: yes
+       cache_valid_time: 86400
+     become: yes
+     become_user: root
+
+   - name: Install packages
+     apt:
+       name: [
+         packer
+       ]
+
+   - name: Install AWS
+     shell: |
+       pip3 install awscli
+     become: yes
+     become_user: root
+
+   - name: Install GCloud
+     shell: |
+       echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+       apt-get install apt-transport-https ca-certificates gnupg
+       curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+       apt-get update && apt-get install -y google-cloud-sdk kubectl
+     become: yes
+     become_user: root
+
+   - name: Install kind
+     shell: |
+       curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.10.0/kind-linux-amd64
+       chmod +x ./kind
+       mv ./kind /usr/bin/
+     become: yes
+     become_user: root
+
+   - name: Install k3d
+     shell: |
+       echo "install loft"
+     become: yes
+     become_user: root
+
+   - name: Install Terraform
+     shell: |
+       wget "https://releases.hashicorp.com/terraform/0.14.7/terraform_0.14.7_linux_amd64.zip" -O /tmp/terraform.zip
+       unzip /tmp/terraform.zip
+       rm /tmp/terraform.zip
+       mv terraform /usr/bin/
+     become: yes
+     become_user: root
+
+   - name: Install Helm
+     shell: |
+       wget "https://get.helm.sh/helm-v3.5.2-linux-amd64.tar.gz"
+       tar -xvzf helm-v3.5.2-linux-amd64.tar.gz
+       mv linux-amd64/helm /usr/bin/
+       rm -rf linux-amd64
+     become: yes
+     become_user: root
+
+   - name: Install Devspace
+     shell: |
+       npm install -g devspace
+     become: yes
+     become_user: root
+
+   - name: Install fluxcd2
+     shell: |
+       curl -s https://toolkit.fluxcd.io/install.sh | bash
+     become: yes
+     become_user: root
+
+   - name: Install istio
+     shell: |
+       curl -L https://istio.io/downloadIstio | sh -
+       mv istio*/bin/istioctl /usr/bin/
+     become: yes
+     become_user: root
+
+   - name: Install kubestack
+     shell: |
+       curl -LO "https://github.com/kbst/kbst/releases/download/$(curl -s https://www.kubestack.com/cli-latest.txt)/kbst_linux_amd64.zip"
+       unzip -d /usr/bin/ kbst_linux_amd64.zip kbst
+       rm -rf kbst_linux_amd64.zip
+     become: yes
+     become_user: root
+
+   - name: Install Loft
+     shell: |
+       curl -s -L "https://github.com/loft-sh/loft/releases/latest" | sed -nE 's!.*"([^"]*loft-linux-amd64)".*!https://github.com\1!p' | xargs -n 1 curl -L -o loft
+       chmod +x loft;
+       mv loft /usr/bin/
+     become: yes
+     become_user: root
+
+   - name: Install Skaffold
+     shell: |
+       curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64 && \
+       install skaffold /usr/bin/
+       rm skaffold
+     become: yes
+     become_user: root

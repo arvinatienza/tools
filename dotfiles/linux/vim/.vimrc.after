@@ -42,7 +42,8 @@ nnoremap <C-F11> :wall <bar> !git add . && git commit -m 'WIP...' <CR>
 nnoremap <C-F12> :wall <bar> !git add . && git commit -m 'WIP...' && git push && cat ~/.zsh/power-overwhelming-ascii.txt<CR>
 
 " Git
-nnoremap <leader>gdD :tabnew <bar> r !git diff develop...HEAD --name-only
+nnoremap <leader>gdd :Gdiff develop
+nnoremap <leader>gdda :tabnew <bar> r !git diff develop...HEAD --name-only
 nnoremap <leader>glg :tabnew <bar> r !git log --all --decorate --graph --oneline<SPACE>
 nnoremap <leader>glgp :tabnew <bar> r !git log --all --decorate --graph --stat -p<SPACE>
 nnoremap <leader>gt :-1read ~/.gitmessage
@@ -89,6 +90,7 @@ nnoremap <leader>zfi :set foldmethod=indent<cr>
 
 " shell
 nnoremap <leader>k :tabnew <bar> r !
+vnoremap <leader>k y:tabnew <bar> r !
 nnoremap <leader>kk ^vg_y:tabnew <bar> r !<C-r>0
 
 " config
