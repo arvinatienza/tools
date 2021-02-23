@@ -1,0 +1,43 @@
+- hosts: localhost
+  tasks:
+
+   - name: Update and upgrade apt packages
+     apt:
+       upgrade: yes
+       update_cache: yes
+       cache_valid_time: 86400
+     become: yes
+     become_user: root
+
+   - name: Install packages
+     apt:
+       name: [
+         links,
+         mysql-client,
+         tidy,
+       ]
+
+   - name: Install NVM
+     shell: |
+       curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+       #nvm install --lts
+       #npm install -g \
+           #@angular/cli \
+           #create-react-app \
+           #firebase-cli \
+           #node-sass \
+           #typescript
+     become: yes
+     become_user: root
+
+   - name: Install PHP
+     shell: |
+       add-apt-repository ppa:ondrej/php
+       apt-get update
+       apt install -y php7.4 php-xml php-mbstring php-xdebug
+       php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+       php composer-setup.php --install-dir=/usr/bin/ --filename=composer
+       php -r "unlink('composer-setup.php');"
+     become: yes
+     become_user: root
+
